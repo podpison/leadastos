@@ -1,0 +1,39 @@
+@import "./../../App.module.scss";
+
+.forClientsSlide {
+    width: 42%;
+    .sign {
+        @include adaptivValue('font-size', 20, 15, 0);
+        font-weight: 600;
+        line-height: 172%;
+        text-transform: uppercase;
+        padding-bottom: 1.5em;
+        border-bottom: 2px solid #FB1B3D;
+    }
+    .form {
+        margin-top: 3.125rem;
+        display: flex;
+        flex-direction: column;
+        .textField {
+            &:not(:last-child) {
+                margin-bottom: 35px;
+            }
+            .textFieldLabel, .textFieldInput {
+                font-family: 'montserrat';
+                @include adaptivValue('font-size', 20, 15, 0);
+            }
+        }
+        .button {
+            @include adaptivValue('font-size', 20, 12, 0);
+            text-align: center;
+            letter-spacing: 0.105em;
+            background-color: #FB1B3D;
+            padding: 1.1em 2.25em;
+            margin-top: 2.75em;
+            color: #fff;
+            font-family: 'montserrat';
+            width: fit-content;
+            font-weight: 800;
+        }
+    }
+}

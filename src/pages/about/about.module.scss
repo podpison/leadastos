@@ -1,0 +1,74 @@
+@import "./../../App.module.scss";
+
+@mixin sign {
+    @include adaptivValue('font-size', 50, 30, 0);
+    font-weight: 600;
+    line-height: 167%;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.informationAboutSlide {
+    .sign {
+        @include sign;
+        width: 17em;
+    }
+    .textsAndGoToContainer {
+        display: grid;
+        grid-template-columns: 5fr 1fr;
+        .textsContainer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: end;
+            p {
+                line-height: 169%;
+                letter-spacing: 0.1em;
+                max-height: 45vh;
+                overflow: scroll;
+                &:not(:first-child) {
+                    max-height: 20vh;
+                }
+            }
+            *:not(:first-child) {
+                margin-left: 70px;
+            }
+        }
+    }
+}
+.ourAdvantagesSlide {
+    .sign {
+        @include sign;
+        width: 14em;
+    }
+    .textAndGoToContainer {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        align-items: center;
+        .textContainer {
+            padding-left: 5%;
+            position: relative;
+            border-left: 2px solid black;
+            p {
+                font-size: 1rem;
+                letter-spacing: 0.105em;
+                line-height: 169%;
+                font-feature-settings: 'case' on;
+                margin-bottom: 4.374em;
+                width: 50em;
+                &::before {
+                    background-color: black;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    margin: 1.7% 0 0 -1%;
+                }
+            }
+        }
+        .goTo {
+            margin-bottom: 20%;
+        }
+    }
+}

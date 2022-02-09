@@ -1,0 +1,19 @@
+@import "./../../../App.module.scss";
+
+.ourCustomersSlide {
+    .sign {
+        @include adaptivValue('font-size', 50, 30, 0);
+        letter-spacing: 0.13em;
+        line-height: 169%;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0.5em;
+        width: 17em;
+    }
+    .itemsContainer {
+        display: grid!important;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 70px;
+        align-items: center;
+    }
+}

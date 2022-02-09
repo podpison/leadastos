@@ -1,0 +1,36 @@
+@import "./../../../App.module.scss";
+
+.mainContainer {
+    @include adaptivValue('width', 225, 150, 0);
+    @include adaptivValue('height', 225, 150, 0);
+    border-radius: 50%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: #FB1B3D;
+    justify-content: center;
+    p {
+        @include adaptivValue('font-size', 20, 16, 0);
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        line-height: 108%;
+        margin-left: 2em;
+    }
+    img {
+        margin-top: 7px;
+        width: 8em;
+        margin: 7px 0 0 2.5em;
+    }
+}
+.consultationContainer {
+    box-shadow: 10px -20px 20px rgb(0 0 0 / 30%);
+    img {
+        margin: 7px auto 0;
+    }
+}
+.startProjectContainer {
+    p {
+        text-transform: uppercase;
+    }
+}

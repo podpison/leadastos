@@ -1,0 +1,33 @@
+
+.pageCreatorHOC__carousel {
+    .mainCarousel__dotsContainer {
+        display: flex!important;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        right: 2%;
+        top: -10%;
+        position: fixed;
+        width: fit-content;
+        li.slick-active button:before {
+            font-size: 14px;
+            color: #FB1B3D!important;
+        }
+        li button:before {
+            font-size: 10px;
+        }
+        li button:focus:before {
+            color: #FB1B3D;
+            opacity: 0.5;
+        }
+    }
+    .slick-list {
+        height: 86vh;
+        .slick-slide {
+            height: 86vh;
+            & > div {
+                height: 100%;
+            }
+        }
+    }
+}

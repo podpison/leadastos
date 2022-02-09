@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import StyledEngineProvider from '@mui/material/StyledEngineProvider';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Navigation } from './pages/commonComponents/navigation/Navigation';
+import { MainPage } from './pages/main/Main';
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import c from "./App.module.scss";
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import { AboutPage } from './pages/about/AboutPage';
+import { WorksPage } from './pages/works/WorksPage';
+import { PricesPage } from './pages/prices/PricesPage';
+import { ContactsPage } from './pages/contacts/ContactsPage';
+import { ForClientsPage } from './pages/forClients/ForClientsPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledEngineProvider injectFirst>
+      <Provider store={store}>
+        <HashRouter basename={process.env.PUBLIC_URL} >
+          <Navigation />
+          <main className={c.main}>
+            <Routes>
+              <Route path='*' element={<MainPage />} />
+              <Route path='/about' element={<AboutPage />} />
+              <Route path='/works' element={<WorksPage />} />
+              <Route path='/prices' element={<PricesPage />} />
+              <Route path='/contacts' element={<ContactsPage />} />
+              <Route path='/forClients' element={<ForClientsPage />} />
+            </Routes>
+          </main>
+        </HashRouter>
+      </Provider>
+    </StyledEngineProvider>
   );
-}
+};
 
 export default App;

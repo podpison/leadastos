@@ -1,0 +1,23 @@
+.simplebar-wrapper {
+    height: 66vh; 
+}
+.simplebar-track.simplebar-vertical {
+    width: 35px;
+    &::after {
+        content: '';
+        height: 100vh;
+        background-color: #000;
+        width: 2px;
+        display: inline-block;
+        margin-left: 16px;
+        position: relative;
+    }
+}
+.simplebar-scrollbar {
+    &::before {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        background-color: #FB1B3D;
+    }
+}

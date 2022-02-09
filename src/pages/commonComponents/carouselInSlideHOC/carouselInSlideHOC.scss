@@ -1,0 +1,25 @@
+.carouselInSlideHOC__mainContainer {
+    .slick-list {
+        height: 76vh!important;
+    }
+    .carouselInSlideHOC__dotsContainer {
+        li {
+            &:not(:first-child) {
+                margin-left: 10px;
+            }
+            width: fit-content;
+            button:before {
+                content: none;
+            }
+            &.slick-active button {
+                background-color: #FB1B3D;
+            }
+            button {
+                width: 40px;
+                height: 5px;
+                border-radius: 100px;
+                background-color: black;
+            }
+        }      
+    }
+}

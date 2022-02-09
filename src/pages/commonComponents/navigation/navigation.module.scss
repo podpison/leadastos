@@ -1,0 +1,50 @@
+@import "./../../../App.module.scss";
+
+.appBar {
+    color: black;
+    background-color: white;
+    box-shadow: none;
+    position: static;
+    height: 14vh;
+    & > div {
+        padding: 0!important;
+    }
+}
+
+.computerMainContainer {
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+    .navContainer {
+        @include adaptivValue('font-size', 16, 14, 0);
+        margin-left: 9em;
+        display: flex;
+        align-items: center;
+        .themeChooser {
+            .Mui-checked {
+                background-color: white
+            }
+            .Mui-disabled {
+                background-color: #1B1B1B;
+            }
+        }
+        a {
+            margin-left: 3.125em;
+            text-decoration: none;
+            font-weight: 500;
+            color: black;
+        }
+        .startAProjectSign {
+            display: flex;
+            align-items: center;
+            margin-left: 3.125em;
+            .sign {
+                margin-right: 10px;
+                font-weight: 500;
+            }
+            img {
+                height: 100%;
+            }
+        }
+    }
+}
