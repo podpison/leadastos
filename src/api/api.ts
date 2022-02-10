@@ -21,26 +21,3 @@ export const itemsAPI = {
         return querySnapshot.docs.map(doc => doc.data());
     }
 };
-
-export type CustomerDataType = {
-    firstName: string
-    lastName: string
-    servicesYouPayFor: string
-    email: string
-    amount: number
-}
-
-export const customerAPI = {
-    subscribeCustomer: async (customerData: CustomerDataType) => {
-        try {
-            let qs = await fs.collection('customersWithSubscription').get();
-            let isCustomerExist = qs.docs.map(doc => doc.data()).filter(d => d.email === customerData.email);
-            if (isCustomerExist.length === 0) {
-                await fs.collection('customersWithSubscription').add(customerData);
-                return true;
-            } else {return false};
-        } catch {
-            return false;
-        }
-    }
-}

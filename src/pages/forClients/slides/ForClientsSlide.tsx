@@ -8,7 +8,7 @@ export const ForClientsSlide: React.FC = () => {
     const dispatch = useDispatch();
 
     const validator = (value: string | number, fieldToErrors: string, errors: any, regExp: RegExp) => {
-        if (!value) {
+        if (value !== '') {
             errors[fieldToErrors] = 'Required';
         } else if (!regExp.test(value.toString())) {
             errors[fieldToErrors] = 'Invalid property';
@@ -28,7 +28,8 @@ export const ForClientsSlide: React.FC = () => {
                 return errors;
             }}
             onSubmit={(values) => {
-                dispatch(subscribeCustomer(values));
+                // dispatch(subscribeCustomer(values));
+                console.log(values)
             }}
         >
             {({ handleSubmit, handleChange, handleBlur, values, errors, isSubmitting }) => (

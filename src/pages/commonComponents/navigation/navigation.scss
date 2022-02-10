@@ -1,0 +1,41 @@
+.computerNav__themeChooserContainer {
+    width: 60px;
+    height: 20px;
+    padding: 0;
+    overflow: visible;
+    @media screen and (max-width: 1300px) {
+        width: 20px;
+        height: 60px
+    }
+    .MuiSwitch-switchBase {
+        transform: translateY(-3px) translateX(45px);
+        background-color: white!important;
+        box-shadow: 0 4px 10px rgb(0 0 0 / 40%);
+        padding: 7px;
+        @media screen and (max-width: 1300px) {
+            transform: translateY(38px) translateX(-5px);
+        }
+    }
+    input {
+        width: 30px!important;
+        height: 30px!important;
+        left: 0!important;
+    }
+    .MuiSwitch-track {
+        background-color: white!important;
+        border: 1px solid #131313;
+        opacity: 1;
+    }
+}
+.computerNav__themeChooserContainerDark {
+    .MuiSwitch-switchBase {
+        transform: translateY(-3px) translateX(-10px);
+        background-color: #2B2B2D!important;
+        @media screen and (max-width: 1300px) {
+            transform: translateY(-8px) translateX(-5px)
+        }
+    }
+    .MuiSwitch-track {
+        background-color: #1B1B1B!important;
+    }
+}

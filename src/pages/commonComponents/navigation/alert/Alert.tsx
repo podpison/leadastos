@@ -6,15 +6,15 @@ import { customerActions } from "../../../../redux/customerReducer";
 import c from "./alert.module.scss";
 
 type Props = {
-    operationStatus: boolean
+    operationStatus: boolean | null
 }
 
 export const Alert: React.FC<Props> = ({ operationStatus }) => {
     const dispatch = useDispatch();
-    useEffect(() => {
-        setTimeout(() => dispatch(customerActions.changeOperationStatus(null)), 10000);
-    }, [dispatch, operationStatus]);
-    return operationStatus
+    // useEffect(() => {
+    //     setTimeout(() => dispatch(customerActions.changeOperationStatus(null)), 10000);
+    // }, [dispatch, operationStatus]);
+    return operationStatus == true
         ? <MUIAlert className={c.alert} security='success'>
             <AlertTitle>Success!</AlertTitle>
             The operation completed successfully!

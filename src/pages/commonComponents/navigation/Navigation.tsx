@@ -16,7 +16,7 @@ export const Navigation: React.FC = () => {
             <ComputerNav setBurgerStatus={setBurgerStatus} />
             <PhoneNav burgerStatus={burgerStatus} setBurgerStatus={setBurgerStatus} />
         </AppBar>
-
-        {operationStatus === null ? null : <Alert operationStatus={operationStatus} /> }
+        <Alert operationStatus={operationStatus} />
+        // {operationStatus === null ? null : <Alert operationStatus={operationStatus} /> }
     </>
 };

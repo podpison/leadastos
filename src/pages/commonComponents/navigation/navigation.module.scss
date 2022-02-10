@@ -12,20 +12,40 @@
 }
 
 .computerMainContainer {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
     align-items: center;
     padding-top: 50px;
+    @media screen and (max-width: 900px) {
+        grid-template-areas: 'burger logo triangle';
+    }
+    .logoContainer {
+        img {
+            width: 100%;
+            height: auto;
+        }
+        @media screen and (max-width: 900px) {
+            grid-area: logo;
+        }
+    }
+    .burgerContainer {
+        width: fit-content;
+        .burger {
+            transform: scale(2.5);
+        }
+        grid-area: burger;
+    }
     .navContainer {
         @include adaptivValue('font-size', 16, 14, 0);
-        margin-left: 9em;
+        margin-left: 8vw;
         display: flex;
         align-items: center;
-        .themeChooser {
-            .Mui-checked {
-                background-color: white
-            }
-            .Mui-disabled {
-                background-color: #1B1B1B;
+        @media screen and (max-width: 1500px) {
+            margin-left: 3vw;
+        }
+        .home {
+            @media screen and (max-width: 1300px) {
+                display: none;
             }
         }
         a {
@@ -33,6 +53,9 @@
             text-decoration: none;
             font-weight: 500;
             color: black;
+            @media screen and (max-width: 900px) {
+                margin-left: 2.125em;
+            }
         }
         .startAProjectSign {
             display: flex;
@@ -41,10 +64,31 @@
             .sign {
                 margin-right: 10px;
                 font-weight: 500;
+                @media screen and (max-width: 1400px) {
+                    transform: rotate(180deg);
+                    margin-top: 10px;
+                }
             }
-            img {
-                height: 100%;
+            .triangle {
+                height: auto;
+                width: auto;
+                @media screen and (max-width: 1400px) {
+                    width: 20px;
+                }
+                @media screen and (max-width: 900px) {
+                    grid-area: triangle;
+                }
+            }
+            @media screen and (max-width: 1400px) {
+                writing-mode: vertical-rl;
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                margin-top: 8em;
             }
         }
     }
 }
+// .mobileMainContainer {
+
+// }
