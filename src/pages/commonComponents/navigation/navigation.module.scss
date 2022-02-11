@@ -10,30 +10,79 @@
         padding: 0!important;
     }
 }
+.navLinksContainer {
+    .logoContainer {
+        img {
+            width: 100%;
+            height: auto;
+        }
+        @media screen and (max-width: 899px) {
+            grid-area: logo;
+        }
+    }
+    a {
+        font-weight: 500;
+        color: black;
+        text-decoration: none;
+    }
+    .startAProjectSign {
+        display: flex;
+        align-items: center;
+        .sign {
+            margin-right: 10px;
+            font-weight: 500;
+            @media screen and (max-width: 1400px) {
+                transform: rotate(180deg);
+                margin-top: 10px;
+            }
+            @media screen and (max-width: 899px) {
+                margin-top: 0;
+                transform: initial;
+            }
+        }
+        .triangle {
+            height: auto;
+            width: auto;
+            @media screen and (max-width: 1400px) {
+                width: 20px;
+            }
+            @media screen and (max-width: 899px) {
+                grid-area: triangle;
+            }
+        }
+        @media screen and (max-width: 1400px) {
+            writing-mode: vertical-rl;
+            flex-direction: row-reverse;
+            margin-top: 8em;
+        }
+        @media screen and (max-width: 899px) {
+            writing-mode: initial;
+            flex-direction: row;
+            margin-top: inherit;
+        }
+    }
+}
 
 .computerMainContainer {
     display: grid;
     grid-template-columns: 1fr 5fr;
     align-items: center;
     padding-top: 50px;
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 899px) {
         grid-template-areas: 'burger logo triangle';
-    }
-    .logoContainer {
-        img {
-            width: 100%;
-            height: auto;
-        }
-        @media screen and (max-width: 900px) {
-            grid-area: logo;
-        }
+        grid-template-columns: 5fr 1fr 5fr;
+        width: 100%;
     }
     .burgerContainer {
         width: fit-content;
+        grid-area: burger;
+        margin-left: 5%;
         .burger {
             transform: scale(2.5);
         }
-        grid-area: burger;
+    }
+    .mobileTriangle {
+        width: 90%;
     }
     .navContainer {
         @include adaptivValue('font-size', 16, 14, 0);
@@ -50,45 +99,29 @@
         }
         a {
             margin-left: 3.125em;
-            text-decoration: none;
-            font-weight: 500;
-            color: black;
-            @media screen and (max-width: 900px) {
+            @media screen and (max-width: 105px) {
                 margin-left: 2.125em;
             }
         }
         .startAProjectSign {
-            display: flex;
-            align-items: center;
             margin-left: 3.125em;
-            .sign {
-                margin-right: 10px;
-                font-weight: 500;
-                @media screen and (max-width: 1400px) {
-                    transform: rotate(180deg);
-                    margin-top: 10px;
-                }
-            }
-            .triangle {
-                height: auto;
-                width: auto;
-                @media screen and (max-width: 1400px) {
-                    width: 20px;
-                }
-                @media screen and (max-width: 900px) {
-                    grid-area: triangle;
-                }
-            }
-            @media screen and (max-width: 1400px) {
-                writing-mode: vertical-rl;
-                display: flex;
-                flex-direction: row-reverse;
-                align-items: center;
-                margin-top: 8em;
-            }
         }
     }
 }
-// .mobileMainContainer {
-
-// }
+.swipeableDrawer {
+    height: fit-content;
+    .closeIcon {
+        position: absolute;
+        top: 20px;
+        right: 10px;
+    }
+}
+.mobileMainContainer {
+    position: relative;
+    & > * {
+        margin: 20px;
+    }
+    .phone {
+        margin: 30px 20px 0 20px;
+    }
+}

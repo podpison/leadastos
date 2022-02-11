@@ -1,4 +1,4 @@
-.computerNav__themeChooserContainer {
+.navigation__themeChooserContainer {
     width: 60px;
     height: 20px;
     padding: 0;
@@ -7,6 +7,10 @@
         width: 20px;
         height: 60px
     }
+    @media screen and (max-width: 899px) {
+        width: 60px;
+        height: 20px
+    }
     .MuiSwitch-switchBase {
         transform: translateY(-3px) translateX(45px);
         background-color: white!important;
@@ -14,6 +18,9 @@
         padding: 7px;
         @media screen and (max-width: 1300px) {
             transform: translateY(38px) translateX(-5px);
+        }
+        @media screen and (max-width: 899px) {
+            transform: translateY(-3px) translateX(45px);
         }
     }
     input {
@@ -27,12 +34,15 @@
         opacity: 1;
     }
 }
-.computerNav__themeChooserContainerDark {
+.navigation__themeChooserContainerDark {
     .MuiSwitch-switchBase {
         transform: translateY(-3px) translateX(-10px);
         background-color: #2B2B2D!important;
         @media screen and (max-width: 1300px) {
-            transform: translateY(-8px) translateX(-5px)
+            transform: translateY(-8px) translateX(-5px);
+        }
+        @media screen and (max-width: 899px) {
+            transform: translateY(-3px) translateX(-10px);
         }
     }
     .MuiSwitch-track {
