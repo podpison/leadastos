@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-// import { customerAPI, CustomerDataType } from "../api/customerAPI";
+import { customerAPI, CustomerDataType } from "../api/api";
 import { ActionsType } from "./store";
 
 const initialState = {
@@ -21,10 +21,7 @@ export const customerActions = {
     changeOperationStatus: (response: boolean | null) => ({ type: 'CUSTOMER/CHANGE-OPERATION-STATUS', response } as const)
 };
 
-// export const subscribeCustomer = (customerData: CustomerDataType) => async (dispatch: Dispatch) => {
-    // let response = await customerAPI.subscribeCustomer(customerData);
-    // dispatch(customerActions.changeOperationStatus(response));
-// }
-export const subscribeCustomer = () => (dispatch: Dispatch) => {
-    
+export const subscribeCustomer = (customerData: CustomerDataType) => async (dispatch: Dispatch) => {
+    let response = await customerAPI.subscribeCustomer(customerData);
+    dispatch(customerActions.changeOperationStatus(response));
 }

@@ -14,15 +14,6 @@
         margin-top: 3.125rem;
         display: flex;
         flex-direction: column;
-        .textField {
-            &:not(:first-child) {
-                margin-top: 35px;
-            }
-            .textFieldLabel, .textFieldInput {
-                font-family: 'montserrat';
-                @include adaptivValue('font-size', 20, 15, 0);
-            }
-        }
         .button {
             @include adaptivValue('font-size', 20, 12, 0);
             text-align: center;

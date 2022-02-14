@@ -11,15 +11,15 @@ type Props = {
 
 export const Alert: React.FC<Props> = ({ operationStatus }) => {
     const dispatch = useDispatch();
-    // useEffect(() => {
-    //     setTimeout(() => dispatch(customerActions.changeOperationStatus(null)), 10000);
-    // }, [dispatch, operationStatus]);
+    useEffect(() => {
+        setTimeout(() => dispatch(customerActions.changeOperationStatus(null)), 10000);
+    }, [dispatch, operationStatus]);
     return operationStatus == true
         ? <MUIAlert className={c.alert} security='success'>
             <AlertTitle>Success!</AlertTitle>
             The operation completed successfully!
         </MUIAlert>
-        : <MUIAlert className={c.alert} severity="error">
+        : <MUIAlert className={`${c.alert} ${c.errorAlert}`} severity="error">
             <AlertTitle>Error!</AlertTitle>
             An error was received during the operation!
         </MUIAlert>

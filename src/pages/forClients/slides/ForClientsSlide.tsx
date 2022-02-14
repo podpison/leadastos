@@ -1,49 +1,52 @@
-import { Button, TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import c from "./../forClientsPage.module.scss";
 import { Formik } from "formik";
 import { subscribeCustomer } from "../../../redux/customerReducer";
 import { useDispatch } from "react-redux";
+import { TextField } from "./../../commonComponents/textField/TextField";
+
+const initialValues = {firstName: '', lastName: '', servicesYouPayFor: '', email: '', amount: '' };
 
 export const ForClientsSlide: React.FC = () => {
     const dispatch = useDispatch();
 
-    const validator = (value: string | number, fieldToErrors: string, errors: any, regExp: RegExp) => {
-        if (value !== '') {
+    const validator = (value: string, fieldToErrors: string, errors: any, regExp: RegExp) => {
+        if (value === '') {
             errors[fieldToErrors] = 'Required';
-        } else if (!regExp.test(value.toString())) {
+        } else if (!regExp.test(value)) {
             errors[fieldToErrors] = 'Invalid property';
         };
-    }
+    };
     return <div className={c.forClientsSlide}>
         <p className={c.sign}>if you are an exiting customer and would like to pay the invoice, pleace follow the steps bellow</p>
         <Formik
-            initialValues={{ firstName: '', lastName: '', servicesYouPayFor: '', email: '', amount: 0 }}
+            initialValues={initialValues}
             validate={(values) => {
                 const errors = {} as any;
-                validator(values.firstName, 'firstName', errors, /\p{L}/gu);
-                validator(values.lastName, 'lastName', errors, /\p{L}/gu);
-                validator(values.email, 'email', errors, /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/);
-                validator(values.servicesYouPayFor, 'servicesYouPayFor', errors, /\p{L}/gu);
-                validator(values.amount, 'amount', errors, /\d+/);
+                values.firstName && validator(values.firstName, 'firstName', errors, /\p{L}/gu);
+                values.lastName && validator(values.lastName, 'lastName', errors, /\p{L}/gu);
+                values.email && validator(values.email, 'email', errors, /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/);
+                values.servicesYouPayFor && validator(values.servicesYouPayFor, 'servicesYouPayFor', errors, /\p{L}/gu);
+                values.amount && validator(values.amount, 'amount', errors, /\d+/);
                 return errors;
             }}
-            onSubmit={(values) => {
-                // dispatch(subscribeCustomer(values));
-                console.log(values)
+            onSubmit={(values, {resetForm}) => {
+                dispatch(subscribeCustomer(values));
+                // resetForm(initialValues);
             }}
         >
-            {({ handleSubmit, handleChange, handleBlur, values, errors, isSubmitting }) => (
-                <>
+            {({ handleSubmit, handleChange, values, errors, isSubmitting, setSubmitting }) => {
+                return <>
                     <form className={c.form} onSubmit={handleSubmit}>
-                        <TextField className={c.textField} error={errors.firstName !== undefined} helperText={errors.firstName} InputProps={{className: c.textFieldInput}} InputLabelProps={{shrink: true, className: c.textFieldLabel}} label='First name' placeholder='Enter your first name' type='firstName' name='firstName' onChange={handleChange} onBlur={handleBlur} value={values.firstName} />
-                        <TextField className={c.textField} error={errors.lastName !== undefined} helperText={errors.lastName} InputProps={{className: c.textFieldInput}} InputLabelProps={{shrink: true, className: c.textFieldLabel}} label='Last name' placeholder='Enter your last name' type='lastName' name='lastName' onChange={handleChange} onBlur={handleBlur} value={values.lastName} />
-                        <TextField className={c.textField} error={errors.email !== undefined} helperText={errors.email} InputProps={{className: c.textFieldInput}} InputLabelProps={{shrink: true, className: c.textFieldLabel}} label='Email' placeholder='Enter your email' type='email' name='email' onChange={handleChange} onBlur={handleBlur} value={values.email} />
-                        <TextField className={c.textField} error={errors.servicesYouPayFor !== undefined} helperText={errors.servicesYouPayFor} InputProps={{className: c.textFieldInput}} InputLabelProps={{shrink: true, className: c.textFieldLabel}} label='Services you pay for' placeholder='Services you pay for' type='servicesYouPayFor' name='servicesYouPayFor' onChange={handleChange} onBlur={handleBlur} value={values.servicesYouPayFor} />
-                        <TextField className={c.textField} error={errors.amount !== undefined} helperText={errors.amount} InputProps={{className: c.textFieldInput}} InputLabelProps={{shrink: true, className: c.textFieldLabel}} label='Amonut' placeholder='Amount' type='amount' name='amount' onChange={handleChange} onBlur={handleBlur} value={values.amount} />
-                        <Button className={c.button} type='submit' disabled={isSubmitting}>Subscribe</Button>
+                        <TextField value={values.firstName} errorMessage={errors.firstName} label='First name' placeholder='Enter your first name' typeAndName='firstName' onChange={handleChange} />
+                        <TextField value={values.lastName} errorMessage={errors.lastName} label='Last name' placeholder='Enter your last name' typeAndName='lastName' onChange={handleChange} />
+                        <TextField value={values.email} errorMessage={errors.email} label='email' placeholder='Enter your email' typeAndName='email' onChange={handleChange} />
+                        <TextField value={values.servicesYouPayFor} errorMessage={errors.servicesYouPayFor} label='Services you pay for' placeholder='Services you pay for' typeAndName='servicesYouPayFor' onChange={handleChange} />
+                        <TextField value={values.amount} errorMessage={errors.amount} label='Amonut' placeholder='Amount' typeAndName='amount' onChange={handleChange} />
+                        <Button className={c.button} type='submit' >Subscribe</Button>
                     </form>
                 </>
-            )}
+            }}
         </Formik>
     </div>
 };
