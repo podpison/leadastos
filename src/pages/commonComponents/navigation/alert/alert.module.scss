@@ -7,8 +7,11 @@
     bottom: 0;
     animation: fadeIn 10s;
     color: white;
-    background-color: #FB1B3D;
+    background-color: rgb(24, 206, 24);
     z-index: 1;
+}
+.errorAlert {
+    background-color: #FB1B3D;
 }
 @keyframes fadeIn {
     from {
