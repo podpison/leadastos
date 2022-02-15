@@ -6,10 +6,13 @@
     flex-direction: row;
     align-items: center;
     position: absolute;
-    right: 23%;
+    right: 17%;
     bottom: 2%;
+    @media screen and (max-width: 899px) {
+        display: none;
+    }
     .sign {
-        font-size: 20px;
+        @include adaptivValue('font-size', 20, 15);
         transform: rotate(180deg);
     }
     .strip {
@@ -81,30 +84,55 @@
     position: relative;
     height: 100%;
     .informationAboutSign {
-        @include adaptivValue('font-size', 100, 40, 0);
+        font-size: 5vw;
         font-weight: 800;
-        padding: 1em 0;
+        padding: 5vw 0;
         letter-spacing: 0.13em;
         text-transform: uppercase;
+        @media screen and (max-width: 1550px) {
+            @include adaptivValue('font-size', 100, 40, 0);
+        }
     }
     .informationAboutContainer {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        @media screen and (max-width: 899px) {
+            flex-direction: column;
+            align-items: initial;
+        }
         .informationAbout {
-            @include adaptivValue('font-size', 20, 16, 0);
+            font-size: 1.05vw;
             font-feature-settings: 'case' on;
             width: 48em;
             line-height: 169%;
             letter-spacing: 0.1em;
+            @media screen and (max-width: 1550px) {
+                @include adaptivValue('font-size', 20, 16, 0);
+            }
+            @media screen and (max-width: 899px) {
+                width: 100%;
+            }
         }
         .goTo {
-            margin-left: 10%;
+            margin-right: 10%;
+            @media screen and (max-width: 899px) {
+                margin: 4% 0 0;
+            }
         }
     }
     .socialNetworksAndScrollDownSignContainer {
         display: flex;
+        @media screen and (max-width: 899px) {
+            position: absolute;
+            right: 2%;
+            margin-top: -11%;
+        }
         .socialNetworks {
-            margin-top: 6em;
+            margin-top: 5vw;
+            @media screen and (max-width: 899px) {
+                margin-top: 0;
+            }
         }
     }
 }

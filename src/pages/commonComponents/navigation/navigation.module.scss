@@ -16,6 +16,9 @@
             width: 100%;
             height: auto;
         }
+        @media screen and (max-width: 1100px) {
+            width: 90%;
+        }
         @media screen and (max-width: 899px) {
             grid-area: logo;
         }
@@ -82,7 +85,9 @@
         }
     }
     .mobileTriangle {
-        width: 90%;
+        width: auto;
+        height: auto;
+        margin-left: 90%;
     }
     .navContainer {
         @include adaptivValue('font-size', 16, 14, 0);
@@ -99,8 +104,8 @@
         }
         a {
             margin-left: 3.125em;
-            @media screen and (max-width: 105px) {
-                margin-left: 2.125em;
+            @media screen and (max-width: 1110px) {
+                margin-left: 2.2em;
             }
         }
         .startAProjectSign {
@@ -118,10 +123,12 @@
 }
 .mobileMainContainer {
     position: relative;
+    display: flex;
+    flex-direction: column;
     & > * {
         margin: 20px;
     }
     .phone {
-        margin: 30px 20px 0 20px;
+        margin: 30px 0 20px 20px;
     }
 }
