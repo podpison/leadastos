@@ -4,7 +4,8 @@
     position: relative;
     height: 100%;
     .slideName {
-        @include adaptivValue('font-size', 70, 30, 0);
+        @include adaptivValue('font-size', 70, 30, 2);
+        font-size: 70px;
         text-transform: uppercase;
         font-weight: 800;
         writing-mode: vertical-lr;
@@ -13,9 +14,17 @@
         bottom: 12%;
         left: 0;
         letter-spacing: 0.13em;
+        @media screen and (max-width: 899px) {
+            bottom: initial;
+        }
+    }
+    .slideNameMobileStyles {
+        @media screen and (max-width: 899px) {
+            display: none;
+        }
     }
     .smallSlideName {
-        @include adaptivValue('font-size', 50, 30, 0);
+        @include adaptivValue('font-size', 50, 30, 2);
     }
     .scrollToSignContainer {
         writing-mode: vertical-rl;
@@ -24,7 +33,10 @@
         align-items: center;
         position: absolute;
         right: 1.5%;
-        bottom: 10%;
+        bottom: 9%;
+        @media screen and (max-height: 950px) {
+            bottom: 10%;
+        }
         .sign {
             @include adaptivValue('font-size', 20, 15, 0);
             transform: rotate(180deg);
@@ -35,9 +47,16 @@
             background-color: black;
             margin-top: 25px;
         }
+        @media screen and (max-width: 899px) {
+            display: none;
+        }
     }
     .mainContainer {
-        width: 75%;
+        width: 85%;
         margin: 4% auto 0;
+        @media screen and (max-width: 899px) {
+            width: 100%;
+            margin: 0;
+        }
     }
 }

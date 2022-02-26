@@ -1,36 +1,65 @@
 @import "./../../App.module.scss";
 
 @mixin sign {
-    @include adaptivValue('font-size', 50, 30, 0);
+    @include adaptivValue('font-size', 50, 20, 2);
     font-weight: 600;
-    line-height: 167%;
     letter-spacing: 0.13em;
     text-transform: uppercase;
 }
 
+.mobileSlideName {
+    @media screen and (max-width: 899px) {
+        float: left;
+        position: static!important;
+        margin-right: 2%;
+    }
+}
 .informationAboutSlide {
     .sign {
         @include sign;
         width: 17em;
+        @media screen and (max-width: 1200px) {
+            width: 100%;
+        }
     }
     .textsAndGoToContainer {
         display: grid;
-        grid-template-columns: 5fr 1fr;
+        grid-template-columns: 3fr 1fr;
+        justify-items: center;
+        align-items: center;
+        grid-template-areas: 'texts goTo';
+        @media screen and (max-width: 1200px) {
+            display: block;
+            grid-template-columns: none;
+            justify-items: initial;
+        }
+        .goTo {
+            grid-area: goTo;
+            @media screen and (max-width: 1200px) {
+                float: right;
+                margin: 0 0 2% 2%;
+            }
+            @media screen and (max-width: 899px) {
+                margin-top: 5%;
+            }
+        }
         .textsContainer {
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: end;
+            grid-area: texts;
+            @media screen and (max-width: 1200px) {
+                display: block;
+            }
             p {
                 line-height: 169%;
                 letter-spacing: 0.1em;
-                max-height: 45vh;
-                overflow: scroll;
-                &:not(:first-child) {
-                    max-height: 20vh;
-                }
             }
             *:not(:first-child) {
-                margin-left: 70px;
+                margin-left: 12%;
+                @media screen and (max-width: 1200px) {
+                    margin: 5% 0 0 0
+                }
             }
         }
     }
@@ -39,11 +68,21 @@
     .sign {
         @include sign;
         width: 14em;
+        @media screen and (max-width: 899px) {
+            width: 100%;
+        }
     }
     .textAndGoToContainer {
         display: grid;
-        grid-template-columns: 4fr 1fr;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas: 'text goTo';
         align-items: center;
+        justify-items: center;
+        @media screen and (max-width: 899px) {
+            grid-template-columns: none;
+            justify-items: initial;
+            grid-template-areas: 'text' 'goTo';
+        }
         .textContainer {
             padding-left: 5%;
             position: relative;
@@ -53,8 +92,7 @@
                 letter-spacing: 0.105em;
                 line-height: 169%;
                 font-feature-settings: 'case' on;
-                margin-bottom: 4.374em;
-                width: 50em;
+                margin-bottom: 7%;
                 &::before {
                     background-color: black;
                     border-radius: 50%;
@@ -63,12 +101,14 @@
                     content: '';
                     position: absolute;
                     left: 0;
-                    margin: 1.7% 0 0 -1%;
+                    margin: 1.7% 0 0 -10px;
                 }
             }
         }
         .goTo {
-            margin-bottom: 20%;
+            @media screen and (max-width: 899px) {
+                margin: 5% 0 0;
+            }
         }
     }
 }

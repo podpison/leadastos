@@ -1,14 +1,33 @@
+@import "./../../../../App.module.scss";
+
 .portfolioSlide {
     .itemsContainer {
         display: grid!important;
         grid-template-columns: repeat(2, 1fr);
-        gap: 50px;
+        @include adaptivValue('gap', 50, 20, 0);
         }
         .itemContainer {
             display: flex;
             flex-direction: column;
-            width: fit-content;
-            height: fit-content;
+            img {
+                width: 97%; 
+                height: 32vh;
+                @media screen and (max-width: 1600px) {
+                    height: 33vh;
+                }
+                @media screen and (max-width: 899px) {
+                    height: 38vh;
+                }
+                @media screen and (max-width: 600px) {
+                    height: 37vh;
+                }
+                @media screen and (max-height: 950px) {
+                    height: 31vh;
+                }
+                @media screen and (max-height: 800px) {
+                    height: 30vh;
+                }
+            }
             .name {
                 font-weight: 500;
                 letter-spacing: 0.105em;

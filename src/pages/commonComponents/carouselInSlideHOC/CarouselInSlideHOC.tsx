@@ -24,6 +24,7 @@ export const CarouselInSlideHOC: React.FC<Props> = ({itemsName, ItemComponent, i
         subArray.forEach((a, index) => Items.push(<div key={index} className={itemsContainerClassName}>{a}</div>))
     } else items !== undefined ? Items = items : Items = [];
     //autoplay
+
     return <Carousel swipe={false} className={`carouselInSlideHOC__mainContainer ${carouselClassName}`} dotsClass='slick-dots carouselInSlideHOC__dotsContainer' dots>
         {Items}
     </Carousel>

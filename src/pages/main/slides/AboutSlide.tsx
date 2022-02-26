@@ -11,6 +11,7 @@ export const AboutSlide: React.FC = () => {
                 Modi distinctio quisquam pariatur, dolor doloremque iure in? Beatae nihil maxime, ipsam voluptate quis, similique optio, quaerat hic voluptates culpa asperiores? Harum placeat eaque itaque modi nam a earum rem.
                 Aliquam, suscipit hic nesciunt accusantium amet autem inventore est! Voluptatibus optio a facilis odit fugiat impedit consequatur incidunt</p>
             <GoTo className={c.goTo} variant='startProject' />
+            <SocialNetworks className={c.socialNetworks} />
         </div>
         <div className={c.socialNetworksAndScrollDownSignContainer}>
             <SocialNetworks className={c.socialNetworks} />

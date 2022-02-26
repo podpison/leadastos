@@ -6,11 +6,12 @@ declare var particlesJS: any;
 
 type Props = {
     particlesId: string
+    particlesClassName?: string
 }
 
-export const Particles: React.FC<Props> = ({particlesId}) => {
+export const Particles: React.FC<Props> = ({particlesId, particlesClassName}) => {
     useEffect(() => {
         particlesJS(particlesId, particles, null);
     }, []);
-    return <div className={c.particles} id={particlesId} /> 
+    return <div className={`${c.particles} ${particlesClassName}`} id={particlesId} /> 
 };

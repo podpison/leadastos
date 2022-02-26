@@ -13,8 +13,10 @@ export const ServiceInfo: React.FC<Props> = ({src, text}) => {
     return <div className={c.serviseInfoContainer}>
         <div className={c.imgAndName}>
             <img src={src} alt='service' />
-            <img src={src} className={c.imgBlackAndWhite} alt='service' />
-            <p className={c.serviceName}>{serviceName}</p>
+            <div className={c.BlackAndWhiteImgAndName}>
+                <img src={src} className={c.imgBlackAndWhite} alt='service' />
+                <p className={c.serviceName}>{serviceName}</p>
+            </div>
         </div>
         <p className={c.text}>{text}</p>
     </div>

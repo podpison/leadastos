@@ -12,7 +12,7 @@ export const Navigation: React.FC = () => {
     let operationStatus = useSelector(getOperationStatusSelector);
 
     return <>
-        <AppBar className={c.appBar}>
+        <AppBar position='relative' className={c.appBar}>
             <ComputerNav setBurgerStatus={setBurgerStatus} />
             <PhoneNav burgerStatus={burgerStatus} setBurgerStatus={setBurgerStatus} />
         </AppBar>

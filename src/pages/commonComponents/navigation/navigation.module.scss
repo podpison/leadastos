@@ -4,25 +4,16 @@
     color: black;
     background-color: white;
     box-shadow: none;
-    position: static;
+    position: initial;
     height: 14vh;
     & > div {
         padding: 0!important;
     }
+    @media screen and (max-width: 1400px) {
+        height: auto;
+    }
 }
 .navLinksContainer {
-    .logoContainer {
-        img {
-            width: 100%;
-            height: auto;
-        }
-        @media screen and (max-width: 1100px) {
-            width: 90%;
-        }
-        @media screen and (max-width: 899px) {
-            grid-area: logo;
-        }
-    }
     a {
         font-weight: 500;
         color: black;
@@ -73,8 +64,23 @@
     padding-top: 50px;
     @media screen and (max-width: 899px) {
         grid-template-areas: 'burger logo triangle';
-        grid-template-columns: 5fr 1fr 5fr;
+        grid-template-columns: 2fr 1fr 2fr;
         width: 100%;
+        padding: 20px 0;
+    }
+    .logoContainer {
+        .logo {
+            background-image: url(./../../../static/images/logoLight.png);
+            height: 65px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            @media screen and (max-width: 899px) {
+                background-image: url(./../../../static/images/logoMobile.jpg);
+            }
+        }
+        @media screen and (max-width: 899px) {
+            grid-area: logo;
+        }
     }
     .burgerContainer {
         width: fit-content;
@@ -104,12 +110,30 @@
         }
         a {
             margin-left: 3.125em;
+            @media screen and (max-width: 1400px) {
+                margin-left: 3.5em;
+            }
             @media screen and (max-width: 1110px) {
-                margin-left: 2.2em;
+                margin-left: 2.8em;
+            }
+            @media screen and (max-width: 1005px) {
+                margin-left: 2.4em;
+            }
+            @media screen and (max-width: 980px) {
+                margin-left: 1.9em;
             }
         }
         .startAProjectSign {
             margin-left: 3.125em;
+            @media screen and (max-width: 1300px) {
+                margin-left: 5em;
+            }
+            @media screen and (max-width: 1005px) {
+                margin-left: 6em;
+            }
+            @media screen and (max-width: 930px) {
+                margin-left: 5em;
+            }
         }
     }
 }

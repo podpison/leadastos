@@ -4,30 +4,26 @@ import { Formik } from "formik";
 import { subscribeCustomer } from "../../../redux/customerReducer";
 import { useDispatch } from "react-redux";
 import { TextField } from "./../../commonComponents/textField/TextField";
+import { Particles } from "./../../commonComponents/particles/Particles";
+import { useValidator } from "../../../static/hooks/useValidator";
 
 const initialValues = {firstName: '', lastName: '', servicesYouPayFor: '', email: '', amount: '' };
 
 export const ForClientsSlide: React.FC = () => {
     const dispatch = useDispatch();
 
-    const validator = (value: string, fieldToErrors: string, errors: any, regExp: RegExp) => {
-        if (value === '') {
-            errors[fieldToErrors] = 'Required';
-        } else if (!regExp.test(value)) {
-            errors[fieldToErrors] = 'Invalid property';
-        };
-    };
     return <div className={c.forClientsSlide}>
+        <Particles particlesClassName={c.particles} particlesId='forClientsSlideParticles' />
         <p className={c.sign}>if you are an exiting customer and would like to pay the invoice, pleace follow the steps bellow</p>
         <Formik
             initialValues={initialValues}
             validate={(values) => {
                 const errors = {} as any;
-                values.firstName && validator(values.firstName, 'firstName', errors, /\p{L}/gu);
-                values.lastName && validator(values.lastName, 'lastName', errors, /\p{L}/gu);
-                values.email && validator(values.email, 'email', errors, /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/);
-                values.servicesYouPayFor && validator(values.servicesYouPayFor, 'servicesYouPayFor', errors, /\p{L}/gu);
-                values.amount && validator(values.amount, 'amount', errors, /\d+/);
+                values.firstName && useValidator(values.firstName, 'firstName', errors, /\p{L}/gu);
+                values.lastName && useValidator(values.lastName, 'lastName', errors, /\p{L}/gu);
+                values.email && useValidator(values.email, 'email', errors, /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/);
+                values.servicesYouPayFor && useValidator(values.servicesYouPayFor, 'servicesYouPayFor', errors, /\p{L}/gu);
+                values.amount && useValidator(values.amount, 'amount', errors, /\d+/);
                 return errors;
             }}
             onSubmit={(values, {resetForm}) => {

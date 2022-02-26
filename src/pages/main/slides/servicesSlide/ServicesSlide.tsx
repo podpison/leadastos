@@ -15,12 +15,10 @@ export const ServicesSlide: React.FC = () => {
             <Link className={isLinkActiveChecker('/technology')} to='/technology'>TECHNOLOGY</Link>
             <Link className={isLinkActiveChecker('/marketing')} to='/marketing'>MARKETING</Link>
             <Link className={isLinkActiveChecker('/research')} to='/research'>RESEARCH</Link>
-            <GoTo className={c.goTo} variant="startProject" />
         </div>
+        <GoTo className={c.goTo} variant="startProject" />
         <Routes>
-            <Route path='/' element={<ServiceInfo src='https://i.postimg.cc/GmZs4XKQ/adrien-converse-xz-H7-K6n-VVg-l-unsplash-1.png' text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero eligendi explicabo ipsa? Voluptatum excepturi, sequi fugit aut id iusto! Cumque culpa hic molestias id saepe, ipsam dolores veniam mollitia consectetur.
-            Corporis modi suscipit eveniet enim, illum similique beatae minima commodi omnis exercitationem. Officiis eos nostrum esse, necessitatibus architecto quae non dolor quaerat ut, culpa enim ab facilis! Maiores, assumenda voluptatibus!" />} />
-            <Route path='/design' element={<ServiceInfo src='https://i.postimg.cc/GmZs4XKQ/adrien-converse-xz-H7-K6n-VVg-l-unsplash-1.png' text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero eligendi explicabo ipsa? Voluptatum excepturi, sequi fugit aut id iusto! Cumque culpa hic molestias id saepe, ipsam dolores veniam mollitia consectetur.
+            <Route path='*' element={<ServiceInfo src='https://i.postimg.cc/GmZs4XKQ/adrien-converse-xz-H7-K6n-VVg-l-unsplash-1.png' text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero eligendi explicabo ipsa? Voluptatum excepturi, sequi fugit aut id iusto! Cumque culpa hic molestias id saepe, ipsam dolores veniam mollitia consectetur.
             Corporis modi suscipit eveniet enim, illum similique beatae minima commodi omnis exercitationem. Officiis eos nostrum esse, necessitatibus architecto quae non dolor quaerat ut, culpa enim ab facilis! Maiores, assumenda voluptatibus!" />} />
             <Route path='/technology' element={<ServiceInfo src='https://i.postimg.cc/GmZs4XKQ/adrien-converse-xz-H7-K6n-VVg-l-unsplash-1.png' text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero eligendi explicabo ipsa? Voluptatum excepturi, sequi fugit aut id iusto! Cumque culpa hic molestias id saepe, ipsam dolores veniam mollitia consectetur.
             Corporis modi suscipit eveniet enim, illum similique beatae minima commodi omnis exercitationem. Officiis eos nostrum esse, necessitatibus architecto quae non dolor quaerat ut, culpa enim ab facilis! Maiores, assumenda voluptatibus!" />} />

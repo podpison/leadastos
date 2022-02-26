@@ -3,12 +3,14 @@
     .mainCarousel__dotsContainer {
         display: flex!important;
         flex-direction: column;
-        align-items: flex-end;
         justify-content: center;
-        right: 2%;
+        right: 0;
         top: -10%;
-        position: fixed;
         width: fit-content;
+        @media screen and (max-width: 1920px) {
+            position: fixed;
+            right: 2%;
+        }
         li.slick-active button:before {
             font-size: 14px;
             color: #FB1B3D!important;
@@ -16,17 +18,34 @@
         li button:before {
             font-size: 10px;
         }
-        li button:focus:before {
-            color: #FB1B3D;
-            opacity: 0.5;
+        li button:hover:before {
+            color: #FB1B3D!important;
+            opacity: 0.25!important;
         }
     }
     .slick-list {
-        height: 86vh;
-        .slick-slide {
-            height: 86vh;
-            & > div {
-                height: 100%;
+        @media screen and (max-width: 899px) {
+            overflow-y: scroll;
+            height: 92vh!important;
+        }
+        .slick-track {
+            @media screen and (max-width: 899px) {
+                height: fit-content!important;
+            }
+            .slick-slide {
+                height: 86vh!important;
+                @media screen and (max-width: 899px) {
+                    height: auto!important;
+                    &:not(:last-child) {
+                        padding-bottom: 10%;
+                    }
+                }
+                &:first-child {
+                    margin-top: 5%;
+                }
+                & > div {
+                    height: 100%;
+                }
             }
         }
     }

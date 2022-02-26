@@ -8,4 +8,7 @@
         font-family: 'montserrat';
         @include adaptivValue('font-size', 20, 15, 0);
     }
+    @media screen and (max-width: 899px) {
+        width: 98%;
+    }
 }

@@ -10,7 +10,7 @@ export const MainPage: React.FC = () => {
     return <PageCreatorHOC>
         <MainSlide />
         <AboutSlide />
-        <SlideCreatorHOC slideName='services' MainContentComponent={ServicesSlide} scrollTo='down' />
+        <SlideCreatorHOC slideName='services' MainContentComponent={ServicesSlide} scrollTo='down' slideNameMobileStyles={false} />
         <SlideCreatorHOC slideName='portfolio' MainContentComponent={PortfolioSlide} scrollTo='down' />
         <SlideCreatorHOC slideName='contacts' MainContentComponent={ContactsSlide} scrollTo='up' />
     </PageCreatorHOC>

@@ -1,7 +1,6 @@
 import { Hidden, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/MenuOutlined";
-import logoLight from "./../../../static/images/logoLight.png";
 import c from "./navigation.module.scss";
 import "./navigation.scss";
 import triangle from "./../../../static/images/triangle.png";
@@ -15,7 +14,7 @@ export const ComputerNav: React.FC<Props> = ({ setBurgerStatus }) => {
     return <Toolbar>
         <div className={c.computerMainContainer}>
             <Link to='/' className={c.logoContainer}>
-                <img src={logoLight} alt='logo' />
+                <div className={c.logo} />
             </Link>
             <Hidden mdDown>
                 <NavLinks mainContainerClassName={c.navContainer} />

@@ -1,9 +1,16 @@
 @import "./../../../../App.module.scss";
 
 .contactsSlide {
-    display: flex;
-    .rightSide {
-        padding-right: 4.37rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @media screen and (max-width: 899px) {
+        grid-template-columns: 1fr;
+    }
+.rightSide {
+        padding-right: 10%;
+        @media screen and (max-width: 899px) {
+            padding-right: 0;
+        }
         .signs {
             .sign1 {
                 text-transform: uppercase;
@@ -11,7 +18,7 @@
                 line-height: 108%;
                 letter-spacing: 0.105em;
                 font-size: 30px;
-                margin-bottom: 0.66em;
+                margin: 0 0 0.66em;
             }
             .sign2 {
                 @include adaptivValue('font-size', 20, 16, 0);
@@ -22,8 +29,28 @@
         }
         .formContainer {
             .textField {
-                // @include adaptivValue('width', 600, 380, 0);
-                width: 100%;
+                width: 99%;
+                @media screen and (max-width: 875px) {
+                    width: 96vw;
+                }
+                @media screen and (max-width: 770px) {
+                    width: 95vw;
+                }
+                @media screen and (max-width: 620px) {
+                    width: 94vw;
+                }
+                @media screen and (max-width: 520px) {
+                    width: 93vw;
+                }
+                @media screen and (max-width: 440px) {
+                    width: 92vw;
+                }
+                @media screen and (max-width: 390px) {
+                    width: 91vw;
+                }
+                @media screen and (max-width: 340px) {
+                    width: 90vw;
+                }
                 label {
                     @media screen and (min-width: 426px) {
                         @include adaptivValue('font-size', 20, 16, 0);
@@ -60,7 +87,32 @@
         }
     }
     .leftSide {
-        margin-top: 9.3em;
+        margin-top: 17.5%;
+        @media screen and (max-height: 950px) {
+            margin-top: 0;
+        }
+        @media screen and (max-width: 1600p) {
+            margin-top: 18.5%;
+        }
+        @media screen and (max-width: 1500p) {
+            margin-top: 20%;
+        }
+        @media screen and (max-width: 1400p) {
+            margin-top: 21.5%;
+        }
+        @media screen and (max-width: 1300p) {
+            margin-top: 23.5%;
+        }
+        @media screen and (max-width: 1200p) {
+            margin-top: 24.5%;
+        }
+        @media screen and (max-width: 1100p) {
+            margin-top: 30%;
+        }
+        @media screen and (max-width: 899px) {
+            margin-top: 10%;
+            padding-bottom: 5%;
+        }
         .contactInformation {
             margin-bottom: 50px;
             .contactContainer {
@@ -82,40 +134,76 @@
             }
         }
         .usefulLinks {
-            @include adaptivValue('gap', 60, 40, 0);
+            @include adaptivValue('gap', 60, 20, 0);
             display: grid;
             grid-template-columns: 1fr 1fr;
+            @media screen and (max-width: 425px) {
+                grid-template-columns: 1fr;
+                gap: 0;
+                & > div {
+                    margin-top: 5%;
+                }
+            }
+            .socialNetworks {
+                text-align: center;
+                @media screen and (max-width: 425px) {
+                    margin: 5% auto 0;
+                }
+            }
             .linkContainer {
-                @include adaptivValue('width', 270, 170, 0);
-                @include adaptivValue('height', 175, 110, 0);
+                width: 100%;
                 display: flex;
                 flex-direction: column;
                 border: 2px solid black;
-                .name {
-                    @include adaptivValue('font-size', 20, 12, 0);
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    line-height: 132%;
-                    margin: 2.5em 1.25em 1em;
+                transition: background-color 0.6s, color 0.6s;
+                @media screen and (max-width: 899px) {
+                    width: 98%;
                 }
-                .contact {
-                    font-weight: 500;
-                    list-style: 132%;
-                    @include adaptivValue('font-size', 16, 12, 0);
-                    margin: 0 1.6em 1.5em;
-                }
-                .arrow {
-                    @include adaptivValue('width', 150, 100, 0);
-                    margin: 0 1.6em;
+                .content {
+                    margin: 0 auto;
+                    .name {
+                        @include adaptivValue('font-size', 20, 12, 0);
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        line-height: 132%;
+                        margin: 15% 0 1em;
+                    }
+                    .contact {
+                        font-weight: 500;
+                        line-height: 132%;
+                        @include adaptivValue('font-size', 16, 12, 0);
+                        margin: 0 0 1.5em;
+                    }
+                    .arrow {
+                        @include adaptivValue('width', 150, 100, 0);
+                        padding-bottom: 15%;
+                    }
                 }
             }
             .lightTheme {
                 background-color: white;
-                color: black
+                color: black;
+                .arrow {
+                    filter: invert(1);
+                }
+                &:hover {
+                    color: white;
+                    background-color: black;
+                    .arrow {
+                        filter: initial;
+                    }
+                }
             }
             .darkTheme {
                 background-color: black;
                 color: white;
+                &:hover {
+                    color: black;
+                    background-color: white;
+                    .arrow {
+                        filter: invert(1);
+                    }
+                }
             }
         }
     }
