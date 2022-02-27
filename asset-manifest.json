@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/leadastos/static/css/main.dbc564a4.css",
+    "main.js": "/leadastos/static/js/main.8c8b7c2f.js",
+    "static/js/787.63cb37de.chunk.js": "/leadastos/static/js/787.63cb37de.chunk.js",
+    "static/media/Montserrat.ttf": "/leadastos/static/media/Montserrat.087334ca601e288c996e.ttf",
+    "static/media/Montserrat-ExtraBold.ttf": "/leadastos/static/media/Montserrat-ExtraBold.e132ddbed1663d744574.ttf",
+    "static/media/Montserrat-SemiBold.ttf": "/leadastos/static/media/Montserrat-SemiBold.bb9c13378f11c7e56322.ttf",
+    "static/media/Montserrat-Medium.ttf": "/leadastos/static/media/Montserrat-Medium.8a192d248fca1175abd8.ttf",
+    "static/media/Body-Grotesque-Bold.ttf": "/leadastos/static/media/Body-Grotesque-Bold.d8ecd99c062a293d4d43.ttf",
+    "static/media/BodyGrotesque.ttf": "/leadastos/static/media/BodyGrotesque.d8ecd99c062a293d4d43.ttf",
+    "static/media/Potra.ttf": "/leadastos/static/media/Potra.61e9c60b5a2a71053b0a.ttf",
+    "static/media/logoMobile.png": "/leadastos/static/media/logoMobile.e7b94a1f579981d75e67.png",
+    "static/media/slick.svg": "/leadastos/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/leadastos/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/leadastos/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/leadastos/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/leadastos/index.html",
+    "main.dbc564a4.css.map": "/leadastos/static/css/main.dbc564a4.css.map",
+    "main.8c8b7c2f.js.map": "/leadastos/static/js/main.8c8b7c2f.js.map",
+    "787.63cb37de.chunk.js.map": "/leadastos/static/js/787.63cb37de.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dbc564a4.css",
+    "static/js/main.8c8b7c2f.js"
+  ]
+}
