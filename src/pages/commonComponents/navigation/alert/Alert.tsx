@@ -14,7 +14,7 @@ export const Alert: React.FC<Props> = ({ operationStatus }) => {
     useEffect(() => {
         setTimeout(() => dispatch(customerActions.changeOperationStatus(null)), 10000);
     }, [dispatch, operationStatus]);
-    return operationStatus == true
+    return operationStatus === true
         ? <MUIAlert className={c.alert} security='success'>
             <AlertTitle>Success!</AlertTitle>
             The operation completed successfully!

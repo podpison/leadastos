@@ -7,9 +7,14 @@ import LocationIcon from "@mui/icons-material/LocationOn";
 import { Link } from "./Link";
 import { SocialNetworks } from "../../../main/SocialNetworks";
 import { Formik } from "formik";
-import { useValidator } from "./../../../../static/hooks/useValidator";
+import * as Yup from "yup";
 
 const initialValues = { fullName: '', email: '', howCanWeHelpYou: '' };
+const validateSchema = Yup.object().shape({
+    fullName: Yup.string().min(1, 'Too short!').max(20, 'Too long').required('Required'),
+    email: Yup.string().email('Invalid email').required('Required'),
+    howCanWeHelpYou: Yup.string().min(1, 'Too short!').max(200, 'Too long')
+});
 
 export const ContactsSlide: React.FC = () => {
     return <div className={c.contactsSlide}>
@@ -20,23 +25,18 @@ export const ContactsSlide: React.FC = () => {
             </div>
             <Formik
                 initialValues={initialValues}
-                validate={({ fullName, email, howCanWeHelpYou }) => {
-                    const errors = {} as any;
-                    fullName && useValidator(fullName, 'fullName', errors, /\p{L}/gu);
-                    email && useValidator(email, 'email', errors, /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/);
-                    howCanWeHelpYou && useValidator(howCanWeHelpYou, 'howCanWeHelpYou', errors, /\p{L}/gu);
-                    return errors;
-                }}
-                onSubmit={(values) => {
+                validationSchema={validateSchema}
+                onSubmit={(values, {resetForm}) => {
                     console.log(values);
+                    resetForm();
                 }}
             >
-                {({ values, errors, handleChange }) => {
+                {({ values, errors, handleChange, isSubmitting }) => {
                     return <form className={c.formContainer}>
                         <TextField value={values.fullName} errorMessage={errors.fullName} label='Full name' placeholder='Enter your full name' typeAndName="fullName" onChange={handleChange} />
                         <TextField value={values.email} errorMessage={errors.email} label='Email' placeholder='Enter your email' typeAndName="email" onChange={handleChange} />
-                        <TextField value={values.howCanWeHelpYou} errorMessage={errors.howCanWeHelpYou} label='How can we help you' placeholder='Enter how we can help you' typeAndName="howWeCanHelpYou" onChange={handleChange} />
-                        <Button className={c.button} type='submit' variant='contained'>Send</Button>
+                        <TextField value={values.howCanWeHelpYou} errorMessage={errors.howCanWeHelpYou} label='How can we help you' placeholder='Enter how we can help you' typeAndName="howCanWeHelpYou" onChange={handleChange} />
+                        <Button className={c.button} type='submit' disabled={isSubmitting} variant='contained'>Send</Button>
                     </form>
                 }}
             </Formik>

@@ -39,9 +39,9 @@
                     &:not(:last-child) {
                         padding-bottom: 10%;
                     }
-                }
-                &:first-child {
-                    margin-top: 5%;
+                    &:first-child {
+                        margin-top: 5%;
+                    }
                 }
                 & > div {
                     height: 100%;

@@ -9,9 +9,6 @@
     & > div {
         padding: 0!important;
     }
-    @media screen and (max-width: 1400px) {
-        height: auto;
-    }
 }
 .navLinksContainer {
     a {
@@ -62,6 +59,9 @@
     grid-template-columns: 1fr 5fr;
     align-items: center;
     padding-top: 50px;
+    @media screen and (max-width: 1400px) {
+        padding-top: 0;
+    }
     @media screen and (max-width: 899px) {
         grid-template-areas: 'burger logo triangle';
         grid-template-columns: 2fr 1fr 2fr;
@@ -75,7 +75,7 @@
             background-repeat: no-repeat;
             background-size: contain;
             @media screen and (max-width: 899px) {
-                background-image: url(./../../../static/images/logoMobile.jpg);
+                background-image: url(./../../../static/images/logoMobile.png);
             }
         }
         @media screen and (max-width: 899px) {

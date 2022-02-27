@@ -25,6 +25,9 @@
     }
     .smallSlideName {
         @include adaptivValue('font-size', 50, 30, 2);
+        @media screen and (max-height: 830px) {
+            @include adaptivValue('font-size', 40, 30, 2);
+        }
     }
     .scrollToSignContainer {
         writing-mode: vertical-rl;

@@ -6,11 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 //items name must be exact as in the static reducer
 export const useItems = (itemsName: 'portfolioItems' | 'customerLogosItems' | 'pricesItems') => {
     const dispatch = useDispatch();
-    //8-11 is it legal?
-    useEffect(() => {
-        dispatch(getStaticItems(itemsName));
-        //@eslint-disable-next-line
-    }, []);
+    dispatch(getStaticItems(itemsName));
     const portfolioItems = useSelector(getPortfolioItemsSelector);
     const customerLogosItems = useSelector(getCustomerLogosItemsSelector);
     const pricesItems = useSelector(getPricesItemsSelector);
