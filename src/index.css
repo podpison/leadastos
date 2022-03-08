@@ -1,3 +1,10 @@
+.rootLight {
+    background-color: white;
+}
+.rootDark {
+    background-color: black;
+    color: white;
+}
 @font-face {
     font-family: 'potra';
     src: url(./static/fonts/Potra.ttf);

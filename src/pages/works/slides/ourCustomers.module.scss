@@ -2,7 +2,7 @@
 
 .ourCustomersSlide {
     .sign {
-        @include adaptivValue('font-size', 50, 30, 0);
+        font-size: 4.6vh;
         letter-spacing: 0.13em;
         line-height: 169%;
         font-weight: 600;
@@ -19,23 +19,28 @@
         display: grid!important;
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
+        height: 57vh;
+        @media screen and (max-height: 980px) {
+            height: 55vh;
+        }
+        @media screen and (max-width: 899px) {
+            height: auto;
+        }
+        &.itemsContainerDark a img {
+            filter: invert(1);
+        }
         a {
-            img {
-                height: auto;
-                @media screen and (max-width: 1200px) {
-                    width: 100%;
-                }
-                @media screen and (max-width: 899px) {
-                    width: 24vw;
-                }
-            }
             @media screen and (max-width: 899px) {
-                height: 20vh;
+                height: auto;
                 display: flex;
                 align-items: center;
             }
-            @media screen and (max-width: 550px) {
-                height: 21vh;
+            img {
+                height: 13vh;
+                width: 100%;
+                @media screen and (max-width: 899px) {
+                    height: auto;
+                }
             }
         }
     }

@@ -8,6 +8,7 @@ import { Link } from "./Link";
 import { SocialNetworks } from "../../../main/SocialNetworks";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useTheme } from "./../../../../static/hooks/useTheme";
 
 const initialValues = { fullName: '', email: '', howCanWeHelpYou: '' };
 const validateSchema = Yup.object().shape({
@@ -17,6 +18,7 @@ const validateSchema = Yup.object().shape({
 });
 
 export const ContactsSlide: React.FC = () => {
+    const { theme } = useTheme();
     return <div className={c.contactsSlide}>
         <div className={c.rightSide}>
             <div className={c.signs}>
@@ -57,10 +59,10 @@ export const ContactsSlide: React.FC = () => {
                 </div>
             </div>
             <div className={c.usefulLinks}>
-                <Link name='become a client' contact='business@LEAD.com' />
+                <Link name='become a client' contact='business@LEAD.com' theme={theme} />
                 <SocialNetworks className={c.socialNetworks} />
-                <Link name='become a partner' contact='business@LEAD.com' theme='black' />
-                <Link name='join lead team' contact='business@LEAD.com' />
+                <Link name='become a partner' contact='business@LEAD.com' theme={theme === 'light' ? 'dark' : 'light'} />
+                <Link name='join lead team' contact='business@LEAD.com' theme={theme} />
             </div>
         </div>
     </div>

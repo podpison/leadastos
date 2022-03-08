@@ -1,16 +1,26 @@
 .simplebar-wrapper {
     height: 66vh; 
 }
+.scrollableContentHOC_scrollbarLight {
+    .simplebar-track.simplebar-vertical::after {
+        background-color: black;
+    }
+}
+.scrollableContentHOC_scrollbarDark {
+    .simplebar-track.simplebar-vertical::after {
+        background-color: white;
+    }
+}
 .simplebar-track.simplebar-vertical {
     width: 35px;
     &::after {
         content: '';
         height: 100%;
-        background-color: #000;
         width: 2px;
         display: inline-block;
         margin-left: 16px;
         position: relative;
+        z-index: -2;
     }
 }
 .simplebar-scrollbar {
@@ -18,6 +28,8 @@
         border-radius: 50%;
         width: 30px;
         height: 30px;
+        margin-top: -2px;
         background-color: #FB1B3D;
+        opacity: 1!important;
     }
 }

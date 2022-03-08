@@ -2,6 +2,7 @@ import { useItems } from "../../../static/hooks/useItems";
 import "./carouselInSlideHOC.scss";
 import Carousel from "react-slick";
 import { PortfolioItemType, CustomerLogosItemType, PricesItemSlideType } from "./../../../redux/staticReducer";
+import { useTheme } from "../../../static/hooks/useTheme";
 
 type Props = {
     itemsName: 'portfolioItems' | 'customerLogosItems' | 'pricesItems'
@@ -25,7 +26,8 @@ export const CarouselInSlideHOC: React.FC<Props> = ({itemsName, ItemComponent, i
     } else items !== undefined ? Items = items : Items = [];
     //autoplay
 
-    return <Carousel swipe={false} className={`carouselInSlideHOC__mainContainer ${carouselClassName}`} dotsClass='slick-dots carouselInSlideHOC__dotsContainer' dots>
+    const { useThemeClasses } = useTheme();
+    return <Carousel arrows={false} swipe={false} className={`carouselInSlideHOC__mainContainer ${carouselClassName}`} dotsClass={useThemeClasses(['slick-dots', 'carouselInSlideHOC__dotsContainer'], 'carouselInSlideHOC__dotsContainerDark', 'carouselInSlideHOC__dotsContainerLight')} dots>
         {Items}
     </Carousel>
 };

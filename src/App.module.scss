@@ -27,7 +27,7 @@ body {
     overflow: hidden;
     margin: 0 auto;
     max-width: $maxWidth + px;
-    & > div {//#root
+    .app {
         @include mainFont;
         max-width: $maxWidthContainer + px;
         margin: 0 auto;
@@ -54,13 +54,11 @@ body {
         @media screen and (max-width: 1100px) {
             max-width: 1000px;
         }
-
     }
 }
 p {
     margin: 0
 }
 a {
-    color: black;
     text-decoration: none;
 }

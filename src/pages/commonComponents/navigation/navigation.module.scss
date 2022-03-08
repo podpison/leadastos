@@ -1,20 +1,35 @@
 @import "./../../../App.module.scss";
 
 .appBar {
-    color: black;
-    background-color: white;
     box-shadow: none;
     position: initial;
     height: 14vh;
     & > div {
         padding: 0!important;
     }
+    @media screen and (max-width: 899px) {
+        height: auto;
+    }
+    &.appBarLight {
+        color: black;
+        background-color: white;
+    }
+    &.appBarDark {
+        background-color: black;
+        color: white;
+    }
 }
 .navLinksContainer {
     a {
         font-weight: 500;
-        color: black;
         text-decoration: none;
+        transition: opacity 0.3s;
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+    .activeLink {
+        font-weight: bold;
     }
     .startAProjectSign {
         display: flex;
@@ -52,8 +67,17 @@
             margin-top: inherit;
         }
     }
+    &.navLinksContainerLight {
+        a {
+            color: black;
+        }
+    }
+    &.navLinksContainerDark {
+        a {
+            color: white;
+        }
+    }
 }
-
 .computerMainContainer {
     display: grid;
     grid-template-columns: 1fr 5fr;
@@ -70,16 +94,31 @@
     }
     .logoContainer {
         .logo {
-            background-image: url(./../../../static/images/logoLight.png);
             height: 65px;
             background-repeat: no-repeat;
             background-size: contain;
-            @media screen and (max-width: 899px) {
-                background-image: url(./../../../static/images/logoMobile.png);
+            transition: opacity 0.3s;
+            &:hover {
+                opacity: 0.7;
+            }
+            &.logoLight {
+                background-image: url(./../../../static/images/logoLight.png); 
+            }
+            &.logoDark {
+                background-image: url(./../../../static/images/logoDark.jpg);
             }
         }
         @media screen and (max-width: 899px) {
             grid-area: logo;
+        }
+        @media screen and (max-width: 600px) {
+            width: 40px
+        }
+        @media screen and (max-width: 400px) {
+            width: 30px
+        }
+        @media screen and (max-width: 320px) {
+            width: 22px
         }
     }
     .burgerContainer {
@@ -87,13 +126,17 @@
         grid-area: burger;
         margin-left: 5%;
         .burger {
-            transform: scale(2.5);
+            transform: scale(2);
+            &.burgerDark {
+                filter: invert(1);
+            }
         }
     }
     .mobileTriangle {
         width: auto;
         height: auto;
-        margin-left: 90%;
+        position: absolute;
+        right: 0;
     }
     .navContainer {
         @include adaptivValue('font-size', 16, 14, 0);
@@ -156,3 +199,4 @@
         margin: 30px 0 20px 20px;
     }
 }
+

@@ -1,7 +1,9 @@
 import Carousel from "react-slick";
 import "./pageCreatorHOC.scss";
+import { useTheme } from "./../../../static/hooks/useTheme";
 
 export const PageCreatorHOC: React.FC = ({ children }) => {
+    const { useThemeClasses } = useTheme();
     const responsive = [
         {
             breakpoint: 899,
@@ -12,7 +14,7 @@ export const PageCreatorHOC: React.FC = ({ children }) => {
         }
     ]
     return <div className='pageCreatorHOC__carousel'>
-        <Carousel responsive={responsive} vertical verticalSwiping dotsClass='slick-dots mainCarousel__dotsContainer' infinite={false} dots>
+        <Carousel arrows={false} responsive={responsive} vertical verticalSwiping dotsClass={useThemeClasses(['slick-dots', 'mainCarousel__dotsContainer'], 'mainCarousel__dotsContainerDark')} infinite={false} dots>
             {children}
         </Carousel>
     </div>

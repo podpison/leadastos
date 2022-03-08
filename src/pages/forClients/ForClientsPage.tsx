@@ -1,7 +1,7 @@
 import { PageCreatorHOC } from "../commonComponents/pageCreatorHOC/PageCreatorHOC";
 import { SlideCreatorHOC } from "../commonComponents/slideCreatorHOC/SlideCreatorHOC";
 import { ContactsSlide } from "../commonComponents/slides/contactsSlide/ContactsSlide";
-import { ForClientsSlide } from "./slides/ForClientsSlide";
+import { ForClientsSlide } from "./slides/forClientsSlide/ForClientsSlide";
 
 export const ForClientsPage: React.FC = () => {
     return <PageCreatorHOC>

@@ -12,26 +12,41 @@ import { WorksPage } from './pages/works/WorksPage';
 import { PricesPage } from './pages/prices/PricesPage';
 import { ContactsPage } from './pages/contacts/ContactsPage';
 import { ForClientsPage } from './pages/forClients/ForClientsPage';
+import { ThemeContext } from './static/hooks/useTheme';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light');
+
+  useEffect(() => {
+    const root = document.getElementById('root');
+    if (root) {
+      root.className = currentTheme === 'light' ? 'rootLight' : 'rootDark';
+    }
+  }, [currentTheme])
+
   return (
-    <StyledEngineProvider injectFirst>
-      <Provider store={store}>
-        <HashRouter basename={process.env.PUBLIC_URL} >
-          <Navigation />
-          <main className={c.main}>
-            <Routes>
-              <Route path='*' element={<MainPage />} />
-              <Route path='/about' element={<AboutPage />} />
-              <Route path='/works' element={<WorksPage />} />
-              <Route path='/prices' element={<PricesPage />} />
-              <Route path='/contacts' element={<ContactsPage />} />
-              <Route path='/forClients' element={<ForClientsPage />} />
-            </Routes>
-          </main>
-        </HashRouter>
-      </Provider>
-    </StyledEngineProvider>
+    <ThemeContext.Provider value={{ theme: currentTheme, setTheme: setCurrentTheme }}>
+      <StyledEngineProvider injectFirst>
+        <Provider store={store}>
+          <HashRouter>
+            <div className={c.app}>
+              <Navigation />
+              <main className={c.main}>
+                <Routes>
+                  <Route path='*' element={<MainPage />} />
+                  <Route path='/about' element={<AboutPage />} />
+                  <Route path='/works' element={<WorksPage />} />
+                  <Route path='/prices' element={<PricesPage />} />
+                  <Route path='/contacts' element={<ContactsPage />} />
+                  <Route path='/forClients' element={<ForClientsPage />} />
+                </Routes>
+              </main>
+            </div>
+          </HashRouter>
+        </Provider>
+      </StyledEngineProvider>
+    </ThemeContext.Provider>
   );
 };
 

@@ -103,8 +103,8 @@
                 }
             }
             .socialNetworks {
-                text-align: center;
                 @media screen and (max-width: 425px) {
+                    text-align: center;
                     margin: 5% auto 0;
                 }
             }
@@ -112,7 +112,6 @@
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                border: 2px solid black;
                 transition: background-color 0.6s, color 0.6s;
                 @media screen and (max-width: 899px) {
                     width: 98%;
@@ -137,29 +136,31 @@
                         padding-bottom: 15%;
                     }
                 }
-            }
-            .lightTheme {
-                background-color: white;
-                color: black;
-                .arrow {
-                    filter: invert(1);
-                }
-                &:hover {
-                    color: white;
-                    background-color: black;
-                    .arrow {
-                        filter: initial;
-                    }
-                }
-            }
-            .darkTheme {
-                background-color: black;
-                color: white;
-                &:hover {
-                    color: black;
+                &.lightTheme {
                     background-color: white;
+                    color: black;
+                    border: 2px solid black;
                     .arrow {
                         filter: invert(1);
+                    }
+                    &:hover {
+                        color: white;
+                        background-color: black;
+                        .arrow {
+                            filter: initial;
+                        }
+                    }
+                }
+                &.darkTheme {
+                    background-color: black;
+                    color: white;
+                    border: 2px solid white;
+                    &:hover {
+                        color: black;
+                        background-color: white;
+                        .arrow {
+                            filter: invert(1);
+                        }
                     }
                 }
             }

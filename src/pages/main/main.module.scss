@@ -21,8 +21,13 @@
     .strip {
         height: 70px;
         width: 1px;
-        background-color: black;
         margin-top: 25px;
+        &.stripLight {
+            background-color: black;
+        }
+        &.stripDark {
+            background-color: white
+        }
     }
 }
 .socialNetworks {
@@ -32,7 +37,6 @@
         letter-spacing: 0.105em;
     }
     a {
-        color: black;
         svg {
             width: 45px;
             height: 45px;
@@ -40,6 +44,12 @@
     }
     a:last-child {
         margin-left: 30px;
+    }
+    &.socialNetworksDark a {
+        color: white;
+    }
+    &.socialNetworksLight a {
+        color: black
     }
 }
 
@@ -223,6 +233,24 @@
             width: 70%;
             margin: 0 auto 10%;
         }
+        &.linksContainerLight {
+            a {
+                color: black;
+                &:hover {
+                    color: white;
+                    background-color: black;
+                }
+            }
+        }
+        &.linksContainerDark {
+            a {
+                color: white;
+                &:hover {
+                    color: black;
+                    background-color: white;
+                }
+            }
+        }
         .active {
             transition: 0.5s;
             color: white;
@@ -235,10 +263,6 @@
             padding: 10px 30px;
             &:not(:first-child) {
                 margin-top: 20px;
-            }
-            &:hover {
-                color: white;
-                background-color: black;
             }
             @media screen and (max-width: 889px) {
                 font-size: 16px;

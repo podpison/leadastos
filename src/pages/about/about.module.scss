@@ -37,10 +37,7 @@
             grid-area: goTo;
             @media screen and (max-width: 1200px) {
                 float: right;
-                margin: 0 0 2% 2%;
-            }
-            @media screen and (max-width: 899px) {
-                margin-top: 5%;
+                margin: 0 2% 2% 2%;
             }
         }
         .textsContainer {
@@ -86,7 +83,6 @@
         .textContainer {
             padding-left: 5%;
             position: relative;
-            border-left: 2px solid black;
             p {
                 font-size: 1rem;
                 letter-spacing: 0.105em;
@@ -94,7 +90,6 @@
                 font-feature-settings: 'case' on;
                 margin-bottom: 7%;
                 &::before {
-                    background-color: black;
                     border-radius: 50%;
                     width: 20px;
                     height: 20px;
@@ -102,6 +97,18 @@
                     position: absolute;
                     left: 0;
                     margin: 1.7% 0 0 -10px;
+                }
+            }
+            &.textContainerLight {
+                border-left: 2px solid black;
+                &::before {
+                    background-color: black;
+                }
+            }
+            &.textContainerDark {
+                border-left: 2px solid white;
+                &::before {
+                    background-color: white;
                 }
             }
         }

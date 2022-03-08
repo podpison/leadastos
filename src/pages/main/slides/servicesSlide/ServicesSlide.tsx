@@ -3,14 +3,16 @@ import { GoTo } from "../../../commonComponents/goTo/GoTo";
 import c from "./../../main.module.scss";
 import { ServiceInfo } from "./ServiceInfo";
 import { useLocation } from "react-router-dom";
+import { useTheme } from "./../../../../static/hooks/useTheme";
 
 export const ServicesSlide: React.FC = () => {
-    const {pathname} = useLocation();
-
+    const { pathname } = useLocation();
     const isLinkActiveChecker = (pathToCheck: string) => pathname === pathToCheck ? c.active : undefined;
 
+    const { useThemeClasses } = useTheme();
+
     return <div className={c.servicesSlide}>
-        <div className={c.linksContainer}>
+        <div className={useThemeClasses(c.linksContainer, c.linksContainerDark, c.linksContainerLight)}>
             <Link className={isLinkActiveChecker('/')} to='/'>DESIGN</Link>
             <Link className={isLinkActiveChecker('/technology')} to='/technology'>TECHNOLOGY</Link>
             <Link className={isLinkActiveChecker('/marketing')} to='/marketing'>MARKETING</Link>

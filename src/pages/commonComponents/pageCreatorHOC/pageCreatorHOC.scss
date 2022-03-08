@@ -22,6 +22,21 @@
             color: #FB1B3D!important;
             opacity: 0.25!important;
         }
+        &.mainCarousel__dotsContainerDark {
+            li {
+                button:before {
+                    color: white!important;
+                }
+                &.slick-active {
+                    color: #FB1B3D!important;
+                    opacity: 1!important;
+                }
+                &:hover:not(.slick-active) {
+                    opacity: 0.5!important;
+                }
+            }
+            
+        }
     }
     .slick-list {
         @media screen and (max-width: 899px) {
@@ -29,22 +44,17 @@
             height: 92vh!important;
         }
         .slick-track {
-            @media screen and (max-width: 899px) {
-                height: fit-content!important;
-            }
             .slick-slide {
                 height: 86vh!important;
                 @media screen and (max-width: 899px) {
                     height: auto!important;
-                    &:not(:last-child) {
-                        padding-bottom: 10%;
-                    }
-                    &:first-child {
-                        margin-top: 5%;
-                    }
+                    padding-bottom: 10%;
                 }
                 & > div {
                     height: 100%;
+                }
+                &:last-child {
+                    padding-bottom: 20%;
                 }
             }
         }

@@ -6,3 +6,4 @@ export const getPricesItemsSelector = (state: StateType) => state.static.pricesI
 
 //CUSTOMER REDUCER
 export const getOperationStatusSelector = (state: StateType) => state.customer.operationStatus;
+export const getServicesYouPayForSelector = (state: StateType) => state.customer.servicesYouPayFor;

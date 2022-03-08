@@ -48,13 +48,24 @@
                 .goTo {
                     @include adaptivValue('height', 100, 90, 2);
                     @include adaptivValue('width', 100, 90, 2);
-                    background-color: black;
                     margin-top: 10%;
                     p {
                         @include adaptivValue('font-size', 13, 12, 2);
                     }
                     img {
                         width: 63px;
+                    }
+                    &.goToLight {
+                        background-color: black;
+                    }
+                    &.goToDark {
+                        background-color: white;
+                        p {
+                            color: black;
+                        }
+                        img {
+                            filter: invert(1);
+                        }
                     }
                 }
             }
@@ -79,12 +90,23 @@
                 font-feature-settings: 'case' on;
                 margin-bottom: 4%;
             }
-            .price {
-                font-size: 40px;
-                letter-spacing: 0.13em;
-                line-height: 108%;
-                font-weight: 700;
+            .priceAndCheckbox {
+                .price {
+                    font-size: 40px;
+                    letter-spacing: 0.13em;
+                    line-height: 108%;
+                    font-weight: 700;
+                }
+                .checkbox {
+                    margin-left: 5%;
+                }
             }
         }
+    }
+    .choosenCervicesMenu {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding: 20px;
     }
 }

@@ -1,6 +1,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import { collection, setDoc, getDocs, getFirestore, doc, updateDoc } from "firebase/firestore";
+import { ServiceYouPayForType } from "../redux/customerReducer";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCPE4sY8lbIlOteJreHvEyzOZsO_fycImA",
@@ -25,9 +26,9 @@ export const itemsAPI = {
 export type CustomerDataType = {
     firstName: string
     lastName: string
-    servicesYouPayFor: string
+    servicesYouPayFor: ServiceYouPayForType[]
     email: string
-    amount: string
+    amount: number
 }
 
 export const customerAPI = {

@@ -10,6 +10,10 @@
     color: white;
     background-color: #FB1B3D;
     justify-content: center;
+    transition: opacity 0.3s;
+    &:hover {
+        opacity: 0.7;
+    }
     .content {
         margin: 0 auto;
         p {
