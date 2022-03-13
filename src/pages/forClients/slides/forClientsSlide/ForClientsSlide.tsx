@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import c from "./../forClientsPage.module.scss";
+import c from "./../../forClientsPage.module.scss";
 import { Formik } from "formik";
 import { subscribeCustomer, customerActions } from "../../../../redux/customerReducer";
 import { getServicesYouPayForSelector } from "../../../../redux/selectors";
@@ -8,7 +8,7 @@ import { TextField } from "../../../commonComponents/textField/TextField";
 import * as Yup from "yup";
 import { ServicesYouPayFor } from "./ServicesYouPayFor";
 
-const initialValues = {firstName: '', lastName: '', email: ''};
+const initialValues = { firstName: '', lastName: '', email: '' };
 const validateSchema = Yup.object().shape({
     firstName: Yup.string().min(1, 'Too short!').max(15, 'Too long').required('Required'),
     lastName: Yup.string().min(1, 'Too short!').max(15, 'Too long').required('Required'),
@@ -25,8 +25,8 @@ export const ForClientsSlide: React.FC = () => {
         <Formik
             initialValues={initialValues}
             validationSchema={validateSchema}
-            onSubmit={(values, {resetForm}) => {
-                dispatch(subscribeCustomer({...values, servicesYouPayFor, amount: totalAmount }));
+            onSubmit={(values, { resetForm }) => {
+                dispatch(subscribeCustomer({ ...values, servicesYouPayFor, amount: totalAmount }));
                 dispatch(customerActions.deleteAllServicesForPaying());
                 resetForm();
             }}
@@ -34,12 +34,16 @@ export const ForClientsSlide: React.FC = () => {
             {({ handleSubmit, handleChange, values, errors, isSubmitting }) => {
                 return <>
                     <form className={c.form} onSubmit={handleSubmit}>
-                        <TextField className={c.textField1} value={values.firstName} errorMessage={errors.firstName} label='First name' placeholder='Enter your first name' typeAndName='firstName' onChange={handleChange} />
-                        <TextField className={c.textField2} value={values.lastName} errorMessage={errors.lastName} label='Last name' placeholder='Enter your last name' typeAndName='lastName' onChange={handleChange} />
-                        <TextField className={c.textField3} value={values.email} errorMessage={errors.email} label='email' placeholder='Enter your email' typeAndName='email' onChange={handleChange} />
+                        <div className={c.textFieldsAndButton}>
+                            <TextField className={c.textField1} value={values.firstName} errorMessage={errors.firstName} label='First name' placeholder='Enter your first name' typeAndName='firstName' onChange={handleChange} />
+                            <TextField className={c.textField2} value={values.lastName} errorMessage={errors.lastName} label='Last name' placeholder='Enter your last name' typeAndName='lastName' onChange={handleChange} />
+                            <TextField className={c.textField3} value={values.email} errorMessage={errors.email} label='email' placeholder='Enter your email' typeAndName='email' onChange={handleChange} />
+                            <div className={c.buttonAndTotalAmount}>
+                                <Button className={c.button} disabled={isSubmitting} type='submit' >Subscribe</Button>
+                                <p className={c.totalAmount}>Total: {totalAmount} $</p>
+                            </div>
+                        </div>
                         <ServicesYouPayFor />
-                        <TextField disabled={true} className={c.textField5} value={totalAmount} label='Amonut' />
-                        <Button className={c.button} disabled={isSubmitting} type='submit' >Subscribe</Button>
                     </form>
                 </>
             }}

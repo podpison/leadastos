@@ -6,7 +6,7 @@ import "simplebar/dist/simplebar.min.css";
 import "./scrollableContentHOC.scss";
 import { useTheme } from "./../../../../../static/hooks/useTheme";
 import { useLocation } from "react-router-dom";
-import { ChoosenCervicesMenu } from "./ChoosenCervicesMenu";
+import { ChoosenServicesMenu } from "./choosenServicesMenu/ChoosenServicesMenu";
 
 export const ScrollableContentHOC: React.FC<PricesItemSlideType> = ({ name, items }) => {
     const { pathname } = useLocation();
@@ -15,12 +15,14 @@ export const ScrollableContentHOC: React.FC<PricesItemSlideType> = ({ name, item
     const { useThemeClasses } = useTheme();
 
     return <div className={c.scrollableContentHOCContainer}>
-        <h2 className={c.sign}>{name}</h2>
+        <div className={c.signAndChoosenServicesMenu}>
+            <h2 className={c.sign}>{name}</h2>
+            {isChooserModeActive && <ChoosenServicesMenu />}
+        </div>
         <Scrollbar className={useThemeClasses('', 'scrollableContentHOC_scrollbarDark', 'scrollableContentHOC_scrollbarLight')} autoHide={false}>
             <div className={c.itemsContianer}>
                 {Items}
             </div>
         </Scrollbar>
-        {isChooserModeActive && <ChoosenCervicesMenu />}
     </div>
 };

@@ -44,6 +44,7 @@
             height: 92vh!important;
         }
         .slick-track {
+            height: fit-content!important;
             .slick-slide {
                 height: 86vh!important;
                 @media screen and (max-width: 899px) {
@@ -54,7 +55,7 @@
                     height: 100%;
                 }
                 &:last-child {
-                    padding-bottom: 20%;
+                    padding-bottom: 30px;
                 }
             }
         }

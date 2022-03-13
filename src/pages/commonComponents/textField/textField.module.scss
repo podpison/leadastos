@@ -1,19 +1,24 @@
 @import "./../../../App.module.scss";
 
 .textField {
-    &:not(:first-child) {
-        margin-top: 35px;
-    }
     .textFieldLabel, .textFieldInput {
         font-family: 'montserrat';
         @include adaptivValue('font-size', 20, 15, 0);
         &.textFieldLabelDark, &.textFieldInputDark {
             color: white;
         }
-        &.textFieldInputDark {
+        .textFieldBorderDark {
             border-width: 1px;
-            border-color: white!important;
+            border-color: white;
         }
+    }
+    @media screen and (min-width: 900px) {
+        &:not(:first-child) {
+            margin-top: 35px;
+        }
+    }
+    @media screen and (max-width: 899px) {
+        margin-top: 35px;
     }
     @media screen and (max-width: 899px) {
         width: 98%;

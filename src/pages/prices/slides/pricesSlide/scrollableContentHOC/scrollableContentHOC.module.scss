@@ -1,18 +1,35 @@
 @import "./../../../../../App.module.scss";
 
 .scrollableContentHOCContainer {
-    .sign {
-        @include adaptivValue('font-size', 40, 30, 2);
-        font-weight: 500;
-        line-height: 108%;
-        letter-spacing: 0.13em;
-        text-transform: uppercase;
+    .signAndChoosenServicesMenu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5%;
+        .sign {
+            @include adaptivValue('font-size', 40, 30, 2);
+            font-weight: 500;
+            line-height: 108%;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            margin: 0;
+            @media screen and (max-width: 500px) {
+                margin-bottom: 5%;
+            }
+        }
+        @media screen and (max-width: 899px) {
+            flex-direction: column;
+        }
+        @media screen and (max-width: 500px) {
+            align-items: initial;
+            justify-content: initial;
+        }
     }
     .itemContainer {
         display: grid;
         grid-template-columns: 1fr 2fr;
         margin-bottom: 3%;
-        width: calc(100% - 70px);
+        width: calc(100% - 50px);
         @media screen and (max-width: 1200px) {
             grid-template-columns: 2fr 3fr;
         }
@@ -91,6 +108,8 @@
                 margin-bottom: 4%;
             }
             .priceAndCheckbox {
+                display: flex;
+                justify-content: space-between;
                 .price {
                     font-size: 40px;
                     letter-spacing: 0.13em;
@@ -98,15 +117,24 @@
                     font-weight: 700;
                 }
                 .checkbox {
-                    margin-left: 5%;
+                    span {
+                        font-family: 'montserrat';
+                    }
+                    &.checkboxLight {
+                        span {
+                            color: black;
+                        }
+                    }
+                    &.checkboxDark {
+                        span {
+                            color: white;
+                        }
+                    }
+                }
+                @media screen and (max-width: 500px) {
+                    flex-direction: column;
                 }
             }
         }
-    }
-    .choosenCervicesMenu {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        padding: 20px;
     }
 }

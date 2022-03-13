@@ -18,7 +18,7 @@
         height: 100%;
         width: 2px;
         display: inline-block;
-        margin-left: 16px;
+        margin-left: 15px;
         position: relative;
         z-index: -2;
     }
@@ -26,9 +26,9 @@
 .simplebar-scrollbar {
     &::before {
         border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        margin-top: -2px;
+        width: 29px;
+        height: 29px;
+        margin: -2px 0 0 -1px;
         background-color: #FB1B3D;
         opacity: 1!important;
     }

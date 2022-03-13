@@ -47,5 +47,14 @@
     }
     .MuiSwitch-track {
         background-color: #1B1B1B!important;
+        border-color: white;
+    }
+}
+
+.phoneNav_swipeableDrawer {
+    &.phoneNav_swipeableDrawerDark {
+        .MuiPaper-root {
+            background-color: #141414;
+        }
     }
 }

@@ -15,5 +15,5 @@ type Props = {
 
 export const TextField: React.FC<Props> = ({value, errorMessage, label, placeholder, typeAndName, className, onChange, disabled}) => {
     const { useThemeClasses } = useTheme();
-    return <MUITextField value={value} onChange={onChange} className={`${c.textField} ${className}`} error={errorMessage !== undefined} helperText={errorMessage} InputProps={{className: useThemeClasses(c.textFieldInput, c.textFieldInputDark)}} InputLabelProps={{shrink: true, className: useThemeClasses(c.textFieldLabel, c.textFieldLabelDark)}} label={label} placeholder={placeholder} name={typeAndName} type={typeAndName} disabled={disabled} />
+    return <MUITextField variant='outlined' value={value} onChange={onChange} className={`${c.textField} ${className}`} error={errorMessage !== undefined} helperText={errorMessage} InputProps={{className: useThemeClasses(c.textFieldInput, c.textFieldInputDark), classes: { notchedOutline: useThemeClasses('', c.textFieldBorderDark) }}} InputLabelProps={{shrink: true, className: useThemeClasses(c.textFieldLabel, c.textFieldLabelDark)}} label={label} placeholder={placeholder} name={typeAndName} type={typeAndName} disabled={disabled} />
 };

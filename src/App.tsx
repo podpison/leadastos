@@ -16,7 +16,11 @@ import { ThemeContext } from './static/hooks/useTheme';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light');
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>(localStorage.theme ? localStorage.theme : 'lightTheme');
+
+  useEffect(() => {
+    localStorage.theme = currentTheme;
+  }, [currentTheme]); 
 
   useEffect(() => {
     const root = document.getElementById('root');
@@ -38,6 +42,7 @@ function App() {
                   <Route path='/about' element={<AboutPage />} />
                   <Route path='/works' element={<WorksPage />} />
                   <Route path='/prices' element={<PricesPage />} />
+                  <Route path='/prices/chooserMode' element={<PricesPage />} />  
                   <Route path='/contacts' element={<ContactsPage />} />
                   <Route path='/forClients' element={<ForClientsPage />} />
                 </Routes>

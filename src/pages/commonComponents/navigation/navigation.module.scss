@@ -107,18 +107,24 @@
             &.logoDark {
                 background-image: url(./../../../static/images/logoDark.jpg);
             }
+            @media screen and (max-width: 800px) {
+                height: 55px;
+            }
+            @media screen and (max-width: 700px) {
+                height: 50px;
+            }
+            @media screen and (max-width: 600px) {
+                height: 40px;
+            }
+            @media screen and (max-width: 500px) {
+                height: 35px;
+            }
+            @media screen and (max-width: 400px) {
+                height: 30px;
+            }
         }
         @media screen and (max-width: 899px) {
             grid-area: logo;
-        }
-        @media screen and (max-width: 600px) {
-            width: 40px
-        }
-        @media screen and (max-width: 400px) {
-            width: 30px
-        }
-        @media screen and (max-width: 320px) {
-            width: 22px
         }
     }
     .burgerContainer {
@@ -128,7 +134,7 @@
         .burger {
             transform: scale(2);
             &.burgerDark {
-                filter: invert(1);
+                filter: invert(0);
             }
         }
     }
@@ -180,13 +186,12 @@
         }
     }
 }
-.swipeableDrawer {
-    height: fit-content;
-    .closeIcon {
-        position: absolute;
-        top: 20px;
-        right: 10px;
-    }
+
+.closeIcon {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    filter: invert(1);
 }
 .mobileMainContainer {
     position: relative;

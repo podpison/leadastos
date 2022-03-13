@@ -1,11 +1,8 @@
 import { PricesItemType } from "../../../../../redux/staticReducer";
-import { customerActions } from "../../../../../redux/customerReducer";
 import { GoTo } from "../../../../commonComponents/goTo/GoTo";
 import c from "./scrollableContentHOC.module.scss";
 import { useTheme } from "./../../../../../static/hooks/useTheme";
-import { Checkbox, FormGroup, FormControlLabel } from "@mui/material";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { Checkbox } from "./Checkbox";
 
 interface Props extends PricesItemType {
     isChooserModeActive: boolean
@@ -13,14 +10,6 @@ interface Props extends PricesItemType {
 
 export const Item: React.FC<Props> = ({serviceName, description, price, isChooserModeActive}) => {
     const { useThemeClasses } = useTheme();
-
-    const dispatch = useDispatch();
-    const [isChecked, setIsChecked] = useState(false);
-    const checkboxClickHandler = () => {
-        dispatch(customerActions.addNewServiceForPaying({name: serviceName, price}));
-        setIsChecked(!isChecked);
-    }
-
     return <div className={c.itemContainer}>
         <div className={c.imgAndGoToContainer}>
             <div className={c.imgAndGoToContainer2}>
@@ -33,7 +22,7 @@ export const Item: React.FC<Props> = ({serviceName, description, price, isChoose
             <p className={c.description}>{description}</p>
             <div className={c.priceAndCheckbox}>
                 <p className={c.price}>{price} $</p>
-                {isChooserModeActive && <FormGroup><FormControlLabel onClick={checkboxClickHandler} checked={isChecked} label='add this service to the list' control={<Checkbox />} /></FormGroup>}
+                {isChooserModeActive && <Checkbox serviceName={serviceName} price={price} />}
             </div>
         </div>
     </div>
