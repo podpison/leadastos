@@ -42,6 +42,9 @@
             height: 45px;
         }
     }
+    a:first-child {
+        margin-left: -4px;
+    }
     a:last-child {
         margin-left: 30px;
     }
@@ -74,6 +77,9 @@
                 margin-top: 0;
                 width: auto;
             }
+        }
+        @media screen and (max-width: 899px) {
+            padding-left: 0;
         }
     }
     .weRethinkSign {
@@ -122,18 +128,6 @@
     @media screen and (max-width: 700px) {
         padding-top: 5%;
     }
-    @media screen and (max-width: 600px) {
-        padding-top: 10%;
-    }
-    @media screen and (max-width: 500px) {
-        padding-top: 15%;
-    }
-    @media screen and (max-width: 400px) {
-        padding-top: 25%;
-    }
-    @media screen and (max-width: 320px) {
-        padding-top: 35%;
-    }
     .informationAboutSign {
         font-size: 5vw;
         font-weight: 800;
@@ -148,6 +142,9 @@
         }
         @media screen and (max-width: 899px) {
             padding: 5vw 0;
+        }
+        @media screen and (min-width: 900px) and (max-height: 650px) {
+            font-size: 50px;
         }
     }
     .informationAboutContainer {
@@ -179,6 +176,9 @@
             @media screen and (max-width: 899px) {
                 grid-area: text;
             } 
+            @media screen and (min-width: 900px) and (max-height: 650px) {
+                font-size: 16px;
+            }
         }
         .goTo {
             margin: 0 auto;
@@ -253,8 +253,14 @@
         }
         .active {
             transition: 0.5s;
-            color: white;
-            background-color: black;
+            &.activeLight {
+                background-color: black;
+                color: white;
+            }
+            &.activeDark {
+                color: black;
+                background-color: white;
+            }
         }
         a {
             font-size: 1.57vw;

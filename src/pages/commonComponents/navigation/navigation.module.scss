@@ -127,15 +127,12 @@
             grid-area: logo;
         }
     }
-    .burgerContainer {
-        width: fit-content;
+    .burger {
         grid-area: burger;
-        margin-left: 5%;
-        .burger {
-            transform: scale(2);
-            &.burgerDark {
-                filter: invert(0);
-            }
+        margin-left: 6px;
+        transform: scale(2);
+        &.burgerDark {
+            filter: invert(0);
         }
     }
     .mobileTriangle {
@@ -191,7 +188,9 @@
     position: absolute;
     top: 20px;
     right: 10px;
-    filter: invert(1);
+    &.closeIconDark {
+        filter: invert(1);
+    }
 }
 .mobileMainContainer {
     position: relative;

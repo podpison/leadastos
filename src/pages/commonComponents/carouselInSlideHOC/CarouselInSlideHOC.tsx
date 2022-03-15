@@ -11,9 +11,10 @@ type Props = {
     carouselClassName?: string
     itemsContainerClassName?: string
     arrayDividingIsNotRequired?: boolean
+    autoplay?: boolean
 }
 
-export const CarouselInSlideHOC: React.FC<Props> = ({itemsName, ItemComponent, itemsCountInOneSlide, carouselClassName, itemsContainerClassName, arrayDividingIsNotRequired = false}) => {
+export const CarouselInSlideHOC: React.FC<Props> = ({itemsName, ItemComponent, itemsCountInOneSlide, carouselClassName, itemsContainerClassName, arrayDividingIsNotRequired = false, autoplay = true}) => {
     //@ts-ignore fix is requierd
     let items = useItems(itemsName)?.map((i, index) => <ItemComponent key={index} {...i} />);
     let Items = [] as JSX.Element[];
@@ -24,10 +25,9 @@ export const CarouselInSlideHOC: React.FC<Props> = ({itemsName, ItemComponent, i
         };
         subArray.forEach((a, index) => Items.push(<div key={index} className={itemsContainerClassName}>{a}</div>))
     } else items !== undefined ? Items = items : Items = [];
-    //autoplay
 
     const { useThemeClasses } = useTheme();
-    return <Carousel arrows={false} swipe={false} className={`carouselInSlideHOC__mainContainer ${carouselClassName}`} dotsClass={useThemeClasses(['slick-dots', 'carouselInSlideHOC__dotsContainer'], 'carouselInSlideHOC__dotsContainerDark', 'carouselInSlideHOC__dotsContainerLight')} dots>
+    return <Carousel arrows={false} autoplay={autoplay} swipe={false} className={`carouselInSlideHOC__mainContainer ${carouselClassName}`} dotsClass={useThemeClasses(['slick-dots', 'carouselInSlideHOC__dotsContainer'], 'carouselInSlideHOC__dotsContainerDark', 'carouselInSlideHOC__dotsContainerLight')} dots>
         {Items}
     </Carousel>
 };

@@ -1,6 +1,6 @@
 import { Hidden, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
-import MenuIcon from "@mui/icons-material/MenuOutlined";
+import BurgerIcon from "@mui/icons-material/MenuOutlined";
 import c from "./navigation.module.scss";
 import "./navigation.scss";
 import triangle from "./../../../static/images/triangle.png";
@@ -22,10 +22,10 @@ export const ComputerNav: React.FC<Props> = ({ setBurgerStatus }) => {
                 <NavLinks mainContainerClassName={c.navContainer} />
             </Hidden>
             <Hidden mdUp>
-                <div className={c.burgerContainer} onClick={() => setBurgerStatus(true)}>
-                    <MenuIcon className={useThemeClasses(c.burger, c.burgerDark)} />
-                </div>
-                <img className={c.mobileTriangle} src={triangle} alt='triangle' />
+                <BurgerIcon onClick={() => setBurgerStatus(true)} className={useThemeClasses(c.burger, c.burgerDark)} />
+                <Link to='/forClients'>
+                    <img className={c.mobileTriangle} src={triangle} alt='triangle' />
+                </Link>
             </Hidden>
         </div>
     </Toolbar>

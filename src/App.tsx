@@ -16,7 +16,7 @@ import { ThemeContext } from './static/hooks/useTheme';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>(localStorage.theme ? localStorage.theme : 'lightTheme');
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>(!localStorage.theme ? 'light' : localStorage.theme);
 
   useEffect(() => {
     localStorage.theme = currentTheme;

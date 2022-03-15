@@ -6,6 +6,9 @@
     @media screen and (max-width: 899px) {
         grid-template-columns: 1fr;
     }
+    @media screen and (max-width: 400px) {
+        margin-top: 5%;
+    }
 .rightSide {
         padding-right: 10%;
         @media screen and (max-width: 899px) {
@@ -24,12 +27,15 @@
                 @include adaptivValue('font-size', 20, 16, 0);
                 line-height: 108%;
                 letter-spacing: 0.105em;
-                margin-bottom: 2.5em;
+            @media screen and (max-width: 400px) {
+                    margin-bottom: 0;
+                }
             }
         }
         .formContainer {
             display: flex;
             flex-direction: column;
+            margin-top: 8.8%;
             .button {
                 width: 250px;
                 height: 50px;
@@ -90,6 +96,9 @@
                     margin-left: 20px;
                 }
             }
+            @media screen and (min-width: 900px) and (max-height: 670px) {
+                margin-bottom: 20px;
+            }
         }
         .usefulLinks {
             @include adaptivValue('gap', 60, 20, 0);
@@ -101,9 +110,11 @@
             }
             .socialNetworks {
                 @media screen and (max-width: 425px) {
-                    text-align: center;
                     margin: 5% auto 0;
                 }
+            }
+            @media screen and (min-width: 900px) and (max-height: 670px) {
+                gap: 20px
             }
             .linkContainer {
                 width: 100%;

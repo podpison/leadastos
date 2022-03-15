@@ -7,9 +7,10 @@ import { useTheme } from "./../../../../static/hooks/useTheme";
 
 export const ServicesSlide: React.FC = () => {
     const { pathname } = useLocation();
-    const isLinkActiveChecker = (pathToCheck: string) => pathname === pathToCheck ? c.active : undefined;
-
     const { useThemeClasses } = useTheme();
+
+    let activeClasses = useThemeClasses(c.active, c.activeDark, c.activeLight)
+    const isLinkActiveChecker = (pathToCheck: string) => pathname === pathToCheck ? activeClasses : undefined;
 
     return <div className={c.servicesSlide}>
         <div className={useThemeClasses(c.linksContainer, c.linksContainerDark, c.linksContainerLight)}>

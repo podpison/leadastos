@@ -5,6 +5,9 @@
     font-weight: 600;
     letter-spacing: 0.13em;
     text-transform: uppercase;
+    @media screen and (min-width: 900px) and (max-height: 650px) {
+        font-size: 28px;
+    }
 }
 
 .mobileSlideName {
@@ -20,6 +23,9 @@
         width: 17em;
         @media screen and (max-width: 1200px) {
             width: 100%;
+        }
+        @media screen and (min-width: 900px) and (max-height: 700px) {
+            font-size: 30px;
         }
     }
     .textsAndGoToContainer {
@@ -45,9 +51,6 @@
             grid-template-columns: 1fr 1fr;
             align-items: end;
             grid-area: texts;
-            @media screen and (max-width: 1200px) {
-                display: block;
-            }
             p {
                 line-height: 169%;
                 letter-spacing: 0.1em;
@@ -58,6 +61,15 @@
                     margin: 5% 0 0 0
                 }
             }
+            @media screen and (max-width: 1200px) {
+                display: block;
+            }
+            @media screen and (min-width: 900px) and (max-height: 700px) {
+                font-size: 15px;
+            }
+            @media screen and (min-width: 900px) and (max-height: 650px) {
+                font-size: 14px;
+            }
         }
     }
 }
@@ -65,7 +77,7 @@
     .sign {
         @include sign;
         width: 14em;
-        @media screen and (max-width: 899px) {
+        @media screen and (max-width: 1300px) {
             width: 100%;
         }
     }
@@ -78,11 +90,14 @@
         @media screen and (max-width: 899px) {
             grid-template-columns: none;
             justify-items: initial;
-            grid-template-areas: 'text' 'goTo';
+        }
+        @media screen and (min-width: 900px) and (max-height: 800px) {
+            display: block;
         }
         .textContainer {
             padding-left: 5%;
             position: relative;
+            grid-area: text;
             p {
                 font-size: 1rem;
                 letter-spacing: 0.105em;
@@ -98,23 +113,30 @@
                     left: 0;
                     margin: 1.7% 0 0 -10px;
                 }
+                @media screen and (min-width: 900px) and (max-height: 700px) {
+                    margin-bottom: 4%;
+                }
             }
             &.textContainerLight {
                 border-left: 2px solid black;
-                &::before {
+                p::before {
                     background-color: black;
                 }
             }
             &.textContainerDark {
                 border-left: 2px solid white;
-                &::before {
+                p::before {
                     background-color: white;
                 }
             }
         }
         .goTo {
+            grid-area: goTo;
             @media screen and (max-width: 899px) {
                 margin: 5% 0 0;
+            }
+            @media screen and (min-width: 900px) and (max-height: 800px) {
+                float: right;
             }
         }
     }

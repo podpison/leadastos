@@ -1,7 +1,8 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import { collection, setDoc, getDocs, getFirestore, doc, updateDoc } from "firebase/firestore";
-import { ServiceYouPayForType } from "../redux/customerReducer";
+import { AlertTypeWithoutIsOpen } from "../redux/alertReducer";
+import { CustomerDataType } from "../redux/customerReducer";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCPE4sY8lbIlOteJreHvEyzOZsO_fycImA",
@@ -23,16 +24,8 @@ export const itemsAPI = {
     }
 };
 
-export type CustomerDataType = {
-    firstName: string
-    lastName: string
-    servicesYouPayFor: ServiceYouPayForType[]
-    email: string
-    amount: number
-}
-
 export const customerAPI = {
-    subscribeCustomer: async (customerData: CustomerDataType) => {
+    subscribeCustomer: async (customerData: CustomerDataType): Promise<AlertTypeWithoutIsOpen> => {
         try {
             const itemsSnapshot = await getDocs(collection(fs, 'customersWithSubscription'));
             const id = itemsSnapshot.docs.filter(doc => doc.data().email === customerData.email)[0]?.id;
@@ -43,10 +36,15 @@ export const customerAPI = {
                 const docRef = doc(fs, 'customersWithSubscription', id)
                 await updateDoc(docRef, customerData);
             };
-            return true;
+            return {severity: 'success', data: {
+                title: 'Success',
+                message: 'The operation completed successfuly!'
+            }};
         } catch(err) {
-            console.log(err)
-            return false;
+            return {severity: 'error', data: {
+                title: 'Oops, something went wrong.',
+                message: err as string
+            }}
         }
     }
 }

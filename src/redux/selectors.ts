@@ -5,5 +5,7 @@ export const getCustomerLogosItemsSelector = (state: StateType) => state.static.
 export const getPricesItemsSelector = (state: StateType) => state.static.pricesItems;
 
 //CUSTOMER REDUCER
-export const getOperationStatusSelector = (state: StateType) => state.customer.operationStatus;
 export const getServicesYouPayForSelector = (state: StateType) => state.customer.servicesYouPayFor;
+
+//ALERT REDUCER
+export const getAlertInformationSelector = (state: StateType) => state.alert;
