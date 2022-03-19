@@ -2,7 +2,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import { collection, setDoc, getDocs, getFirestore, doc, updateDoc } from "firebase/firestore";
 import { AlertTypeWithoutIsOpen } from "../redux/alertReducer";
-import { CustomerDataType } from "../redux/customerReducer";
+import { CustomerDataType, ContactUsType } from "../redux/customerReducer";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCPE4sY8lbIlOteJreHvEyzOZsO_fycImA",
@@ -25,15 +25,16 @@ export const itemsAPI = {
 };
 
 export const customerAPI = {
-    subscribeCustomer: async (customerData: CustomerDataType): Promise<AlertTypeWithoutIsOpen> => {
+    subscribeCustomer: async (customerData: CustomerDataType | ContactUsType): Promise<AlertTypeWithoutIsOpen> => {
+        const currentCollection = 'amount' in customerData ? 'customersWithSubscription' : 'contactUsMessages';
         try {
-            const itemsSnapshot = await getDocs(collection(fs, 'customersWithSubscription'));
+            const itemsSnapshot = await getDocs(collection(fs, currentCollection));
             const id = itemsSnapshot.docs.filter(doc => doc.data().email === customerData.email)[0]?.id;
             if (!id) {
-                const newCustomerRef = doc(collection(fs, 'customersWithSubscription'));
+                const newCustomerRef = doc(collection(fs, currentCollection));
                 await setDoc(newCustomerRef, customerData);
             } else {
-                const docRef = doc(fs, 'customersWithSubscription', id)
+                const docRef = doc(fs, currentCollection, id)
                 await updateDoc(docRef, customerData);
             };
             return {severity: 'success', data: {

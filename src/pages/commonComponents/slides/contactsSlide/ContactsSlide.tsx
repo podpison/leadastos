@@ -9,16 +9,19 @@ import { SocialNetworks } from "../../../main/SocialNetworks";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useTheme } from "./../../../../static/hooks/useTheme";
-
-const initialValues = { fullName: '', email: '', howCanWeHelpYou: '' };
-const validateSchema = Yup.object().shape({
-    fullName: Yup.string().min(1, 'Too short!').max(20, 'Too long').required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
-    howCanWeHelpYou: Yup.string().min(1, 'Too short!').max(200, 'Too long')
-});
+import { useDispatch } from "react-redux";
+import { subscribeCustomer } from "./../../../../redux/customerReducer";
 
 export const ContactsSlide: React.FC = () => {
-    const { theme } = useTheme();
+    const { theme, useThemeClasses } = useTheme();
+    const dispatch = useDispatch();
+
+    const initialValues = {fullName: '', email: '', howCanWeHelpYou: ''};
+    const validateSchema = Yup.object().shape({
+        fullName: Yup.string().min(1, 'Too short!').max(20, 'Too long').required('Required'),
+        email: Yup.string().email('Invalid email').required('Required'),
+        howCanWeHelpYou: Yup.string().min(1, 'Too short!').max(200, 'Too long')
+    });
     return <div className={c.contactsSlide}>
         <div className={c.rightSide}>
             <div className={c.signs}>
@@ -28,17 +31,20 @@ export const ContactsSlide: React.FC = () => {
             <Formik
                 initialValues={initialValues}
                 validationSchema={validateSchema}
-                onSubmit={(values, {resetForm}) => {
-                    console.log(values);
+                validateOnBlur={false}
+                validateOnChange={false}
+                onSubmit={(values, { resetForm, validateForm }) => {
+                    validateForm();
+                    dispatch(subscribeCustomer(values));
                     resetForm();
                 }}
             >
-                {({ values, errors, handleChange, isSubmitting }) => {
+                {({ values, errors, handleChange }) => {
                     return <form className={c.formContainer}>
-                        <TextField value={values.fullName} errorMessage={errors.fullName} label='Full name' placeholder='Enter your full name' typeAndName="fullName" onChange={handleChange} />
-                        <TextField value={values.email} errorMessage={errors.email} label='Email' placeholder='Enter your email' typeAndName="email" onChange={handleChange} />
-                        <TextField value={values.howCanWeHelpYou} errorMessage={errors.howCanWeHelpYou} label='How can we help you' placeholder='Enter how we can help you' typeAndName="howCanWeHelpYou" onChange={handleChange} />
-                        <Button className={c.button} type='submit' disabled={isSubmitting} variant='contained'>Send</Button>
+                        <TextField className={c.textfield0} value={values.fullName} errorMessage={errors.fullName} label='Full name' placeholder='Enter your full name' typeAndName="fullName" onChange={handleChange} />
+                        <TextField className={c.textfield1} value={values.email} errorMessage={errors.email} label='Email' placeholder='Enter your email' typeAndName="email" onChange={handleChange} />
+                        <TextField className={c.textfield2} value={values.howCanWeHelpYou} errorMessage={errors.howCanWeHelpYou} label='How can we help you' placeholder='Enter how we can help you' typeAndName="howCanWeHelpYou" onChange={handleChange} />
+                        <Button className={c.button} type='submit' disabled={!Object.keys(errors).length} variant='contained'>Send</Button>
                     </form>
                 }}
             </Formik>
@@ -58,7 +64,7 @@ export const ContactsSlide: React.FC = () => {
                     <p>Margaretenstrabe 70/3, 1050 Vienna, Austria</p>
                 </div>
             </div>
-            <div className={c.usefulLinks}>
+            <div className={useThemeClasses(c.usefulLinks, c.usefulLinksDark, c.usefulLinksLight)}>
                 <Link name='become a client' contact='business@LEAD.com' theme={theme} />
                 <SocialNetworks className={c.socialNetworks} />
                 <Link name='become a partner' contact='business@LEAD.com' theme={theme === 'light' ? 'dark' : 'light'} />

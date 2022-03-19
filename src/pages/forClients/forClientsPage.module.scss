@@ -62,11 +62,6 @@
         .textFieldsAndButton {
             display: flex;
             flex-direction: column;
-            @for $i from 1 through 3 {
-                .textField#{$i} {
-                    grid-area: field + $i;
-                }
-            }
             .buttonAndTotalAmount {
                 grid-area: button;
                 display: flex;
@@ -92,7 +87,13 @@
                 }
             }
             @media screen and (max-width: 899px) {
-                flex-direction: column-reverse
+                @for $i from 0 through 2 {
+                    .textField#{$i} {
+                        grid-area: field + $i;
+                    }
+                }
+                display: grid;
+                grid-template-areas: 'button' 'field0' 'field1' 'field2';
             }
         }
         @media screen and (max-width: 899px) {

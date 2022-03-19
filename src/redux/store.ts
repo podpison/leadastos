@@ -3,6 +3,7 @@ import thunkMiddleware from "redux-thunk";
 import { staticReducer } from "./staticReducer";
 import { customerReducer } from "./customerReducer";
 import { alertReducer } from "./alertReducer";
+import { composeWithDevTools } from '@redux-devtools/extension';
 
 const reducers = combineReducers({
     static: staticReducer,
@@ -16,4 +17,4 @@ export type StateType = ReturnType<Reducers>;
 type Properties<T> = T extends{[key: string]: infer U} ? U : never;
 export type ActionsType<T extends {[key: string]: (...args: any[]) => any}> = ReturnType<Properties<T>>;
 
-export const store = createStore(reducers, applyMiddleware(thunkMiddleware))
+export const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware)));

@@ -4,4 +4,4 @@ import { CarouselInSlideHOC } from "./../../carouselInSlideHOC/CarouselInSlideHO
 
 export const PortfolioSlide: React.FC = () => {
     return <CarouselInSlideHOC ItemComponent={PortfolioItem} itemsCountInOneSlide={4} itemsContainerClassName={c.itemsContainer} carouselClassName={c.portfolioSlide} itemsName="portfolioItems" />
-}
+};

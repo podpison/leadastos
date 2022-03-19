@@ -18,11 +18,7 @@
         @include adaptivValue('gap', 70, 30, 2);
         display: grid!important;
         grid-template-columns: repeat(3, 1fr);
-        align-items: center;
-        height: 57vh;
-        @media screen and (max-height: 980px) {
-            height: 55vh;
-        }
+        height: 56vh;
         @media screen and (max-width: 899px) {
             height: auto;
         }
@@ -37,10 +33,9 @@
             }
             img {
                 height: 13vh;
-                width: 100%;
+                width: 98%;
                 @media screen and (max-width: 899px) {
                     height: auto;
-                    width: 98%;
                 }
             }
         }

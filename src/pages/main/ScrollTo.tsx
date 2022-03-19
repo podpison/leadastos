@@ -10,6 +10,6 @@ export const ScrollTo: React.FC<Props> = ({scrollTo, className}) => {
     const { useThemeClasses } = useTheme();
     return <div className={`${c.scrollToSignContainer} ${className}`}>
         <div className={c.sign}>{`scroll ${scrollTo}`}</div>
-        <div className={useThemeClasses(c.strip, c.stripDark, c.stipLight)} />
+        <div className={useThemeClasses(c.strip, c.stripDark, c.stripLight)} />
     </div>
 };

@@ -23,7 +23,7 @@ export const ComputerNav: React.FC<Props> = ({ setBurgerStatus }) => {
             </Hidden>
             <Hidden mdUp>
                 <BurgerIcon onClick={() => setBurgerStatus(true)} className={useThemeClasses(c.burger, c.burgerDark)} />
-                <Link to='/forClients'>
+                <Link className={c.mobileTriangleContainer} to='/forClients'>
                     <img className={c.mobileTriangle} src={triangle} alt='triangle' />
                 </Link>
             </Hidden>

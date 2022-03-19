@@ -27,5 +27,5 @@ export const Checkbox: React.FC<Props> = ({serviceName, price}) => {
         : dispatch(customerActions.deleteServiceForPaying({name: serviceName, price}));
         setIsChecked(!isChecked);
     }
-    return <FormGroup className={useThemeClasses(c.checkbox, c.checkboxDark, c.checkboxLight)}><FormControlLabel onClick={checkboxClickHandler} checked={isChecked} label='add this service to the list' control={<MuiCheckbox />} /></FormGroup>
+    return <FormGroup onClick={checkboxClickHandler} className={useThemeClasses(c.checkbox, c.checkboxDark, c.checkboxLight)}><FormControlLabel checked={isChecked} label='add this service to the list' control={<MuiCheckbox />} /></FormGroup>
 }

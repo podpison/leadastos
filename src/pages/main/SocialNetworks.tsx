@@ -7,11 +7,13 @@ type Props = {
     className?: string
 }
 
-export const SocialNetworks: React.FC<Props> = ({className}) => {
-    const {useThemeClasses} = useTheme();
+export const SocialNetworks: React.FC<Props> = ({ className }) => {
+    const { useThemeClasses } = useTheme();
     return <div className={useThemeClasses([c.socialNetworks, className], c.socialNetworksDark, c.socialNetworksLight)}>
-        <p className={c.followSign}>FOLLOW US</p>
-        <a href="https://m.facebook.com"><FacebookIcon /></a>
-        <a href="https://www.instagram.com"><InstagramIcon /></a>
+        <div className={c.contentContainer}>
+            <p className={c.followSign}>FOLLOW US</p>
+            <a className={c.firstLink} href="https://m.facebook.com"><FacebookIcon /></a>
+            <a href="https://www.instagram.com"><InstagramIcon /></a>
+        </div>
     </div>
 };

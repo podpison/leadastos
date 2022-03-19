@@ -14,7 +14,7 @@ type Props = {
     autoplay?: boolean
 }
 
-export const CarouselInSlideHOC: React.FC<Props> = ({itemsName, ItemComponent, itemsCountInOneSlide, carouselClassName, itemsContainerClassName, arrayDividingIsNotRequired = false, autoplay = true}) => {
+export const CarouselInSlideHOC: React.FC<Props> = ({ itemsName, ItemComponent, itemsCountInOneSlide, carouselClassName, itemsContainerClassName, arrayDividingIsNotRequired = false, autoplay = true }) => {
     //@ts-ignore fix is requierd
     let items = useItems(itemsName)?.map((i, index) => <ItemComponent key={index} {...i} />);
     let Items = [] as JSX.Element[];

@@ -15,7 +15,7 @@
         right: -19%;
     }
     .sign {
-        @include adaptivValue('font-size', 20, 15, 0);
+        @include adaptivValue('font-size', 20, 15, 2);
         transform: rotate(180deg);
     }
     .strip {
@@ -31,22 +31,33 @@
     }
 }
 .socialNetworks {
-    .followSign {
-        @include adaptivValue('font-size', 20, 13, 0);
-        margin-bottom: 1.75em;
-        letter-spacing: 0.105em;
-    }
-    a {
-        svg {
-            width: 45px;
-            height: 45px;
+    position: relative;
+    .contentContainer {
+        position: absolute;
+        top: 19%;
+        right: 32%;
+        .followSign {
+            @include adaptivValue('font-size', 20, 13, 2);
+            margin-bottom: 1.75em;
+            letter-spacing: 0.105em;
         }
-    }
-    a:first-child {
-        margin-left: -4px;
-    }
-    a:last-child {
-        margin-left: 30px;
+        a {
+            margin-left: 30px;
+            &.firstLink {
+                margin-left: 6px;
+            }
+            svg {
+                transform: scale(1.8);
+            }
+        }
+        @media screen and (max-width: 899px) {
+            position: initial;
+            margin: 0 auto;
+            width: 142px;
+        }
+        @media screen and (max-width: 425px) {
+            width: 130px;
+        }
     }
     &.socialNetworksDark a {
         color: white;
@@ -63,14 +74,14 @@
     vertical-align: middle;
     @media screen and (max-width: 899px) {
         height: 40vh;
-        padding-top: 10%;
+        padding-top: 3%;
         display: block;
         vertical-align: initial;
     }
     .aboutSignContainer {
         padding-left: 2.5%;
         .aboutSign {
-            @include adaptivValue('font-size', 20, 12, 0);
+            @include adaptivValue('font-size', 20, 12, 2);
             width: 32em;
             line-height: 130%;
             @media screen and (max-width: 899px) {
@@ -103,17 +114,18 @@
         margin-top: -2%
     }
     .goTo {
-        @include adaptivValue('width', 200, 150, 2);
-        @include adaptivValue('height', 200, 150, 2);
+        @include adaptivValue('width', 200, 130, 2);
+        @include adaptivValue('height', 200, 130, 2);
         margin: -6% 0 0 0;
         position: absolute;
-        p {
+        & > div p {
+            @include adaptivValue('font-size', 16, 14, 2);
             margin-left: 0;
             letter-spacing: normal;
             text-align: center;
         }
         @media screen and (max-width: 899px) {
-            margin-top: 0;
+            margin-top: 2%;
         }
     }
 }
@@ -138,7 +150,7 @@
             font-size: 96px
         }
         @media screen and (max-width: 1550px) {
-            @include adaptivValue('font-size', 100, 30, 0);
+            @include adaptivValue('font-size', 100, 30, 2);
         }
         @media screen and (max-width: 899px) {
             padding: 5vw 0;

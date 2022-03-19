@@ -7,8 +7,8 @@ import c from "./about.module.scss";
 
 export const AboutPage: React.FC = () => {
     return <PageCreatorHOC>
-        <SlideCreatorHOC slideNameClassName={c.mobileSlideName} slideNameMobileStyles={false} isSlideNameSmall MainContentComponent={InformationAboutSlide} slideName="information about" scrollTo="down" />
-        <SlideCreatorHOC slideNameClassName={c.mobileSlideName} slideNameMobileStyles={false} isSlideNameSmall MainContentComponent={OurAdvantagesSlide} slideName="our advantages" scrollTo="down" />
+        <SlideCreatorHOC slideNameClassName={c.mobileSlideName} slideNameMobileStyles={false} MainContentComponent={InformationAboutSlide} slideName="information about" scrollTo="down" />
+        <SlideCreatorHOC slideNameClassName={c.mobileSlideName} slideNameMobileStyles={false} MainContentComponent={OurAdvantagesSlide} slideName="our advantages" scrollTo="down" />
         <SlideCreatorHOC MainContentComponent={ContactsSlide} slideName="contacts" scrollTo="up" />
     </PageCreatorHOC>
 };

@@ -4,8 +4,7 @@
     position: relative;
     height: 100%;
     .slideName {
-        @include adaptivValue('font-size', 70, 30, 2);
-        font-size: 70px;
+        font-size: 4.6vh;
         text-transform: uppercase;
         font-weight: 800;
         writing-mode: vertical-lr;
@@ -22,9 +21,6 @@
         @media screen and (max-width: 899px) {
             display: none;
         }
-    }
-    .smallSlideName {
-        height: 4.6vh;
     }
     .scrollToSignContainer {
         writing-mode: vertical-rl;

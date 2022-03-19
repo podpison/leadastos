@@ -7,7 +7,7 @@ import { OurCustomersSlide } from "./slides/OurCustomersSlide";
 export const WorksPage: React.FC = () => {
     return <PageCreatorHOC>
         <SlideCreatorHOC slideName='portfolio' MainContentComponent={PortfolioSlide} scrollTo='down' />
-        <SlideCreatorHOC isSlideNameSmall slideName='our customers' MainContentComponent={OurCustomersSlide} scrollTo='down' />
+        <SlideCreatorHOC slideName='our customers' MainContentComponent={OurCustomersSlide} scrollTo='down' />
         <SlideCreatorHOC MainContentComponent={ContactsSlide} slideName="contacts" scrollTo="up" />
     </PageCreatorHOC>
 };
