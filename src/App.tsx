@@ -1,17 +1,17 @@
 import StyledEngineProvider from '@mui/material/StyledEngineProvider';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import { Navigation } from './pages/commonComponents/navigation/Navigation';
-import { MainPage } from './pages/main/Main';
+import { Navigation } from './components/commonComponents/navigation/Navigation';
+import { MainPage } from './components/pages/main/Main';
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import c from "./App.module.scss";
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import { AboutPage } from './pages/about/AboutPage';
-import { WorksPage } from './pages/works/WorksPage';
-import { PricesPage } from './pages/prices/PricesPage';
-import { ContactsPage } from './pages/contacts/ContactsPage';
-import { ForClientsPage } from './pages/forClients/ForClientsPage';
+import { AboutPage } from './components/pages/about/AboutPage';
+import { WorksPage } from './components/pages/works/WorksPage';
+import { PricesPage } from './components/pages/prices/PricesPage';
+import { ContactsPage } from './components/pages/contacts/ContactsPage';
+import { ForClientsPage } from './components/pages/forClients/ForClientsPage';
 import { ThemeContext } from './static/hooks/useTheme';
 import { useState, useEffect } from 'react';
 
