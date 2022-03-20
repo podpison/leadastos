@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import c from "./../../forClientsPage.module.scss";
 import { Formik } from "formik";
-import { subscribeCustomer, customerActions } from "../../../../redux/customerReducer";
+import { subscribeCustomer } from "../../../../redux/customerReducer";
 import { getServicesYouPayForSelector, getContactUsFormData } from "../../../../redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { TextField } from "../../../commonComponents/textField/TextField";
@@ -36,7 +36,6 @@ export const ForClientsSlide: React.FC = () => {
             onSubmit={(values, { resetForm, validateForm }) => {
                 validateForm();
                 dispatch(subscribeCustomer({ ...values, servicesYouPayFor, amount: totalAmount }));
-                dispatch(customerActions.deleteAllServicesForPaying());
                 resetForm();
             }}
         >
@@ -48,7 +47,7 @@ export const ForClientsSlide: React.FC = () => {
                             <TextField className={c.textField1} value={values.lastName} reduxName='lastName' errorMessage={errors.lastName} label='Last name' placeholder='Enter your last name' typeAndName='lastName' onChange={handleChange} />
                             <TextField className={c.textField2} value={values.email} reduxName='email' errorMessage={errors.email} label='email' placeholder='Enter your email' typeAndName='email' onChange={handleChange} />
                             <div className={c.buttonAndTotalAmount}>
-                                <Button className={c.button} disabled={!Object.keys(errors).length} type='submit' >Subscribe</Button>
+                                <Button className={c.button} type='submit' >Subscribe</Button>
                                 <p className={c.totalAmount}>Total: {totalAmount} $</p>
                             </div>
                         </div>

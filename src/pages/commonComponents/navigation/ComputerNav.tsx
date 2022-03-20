@@ -6,17 +6,19 @@ import "./navigation.scss";
 import triangle from "./../../../static/images/triangle.png";
 import { NavLinks } from "./NavLinks";
 import { useTheme } from "../../../static/hooks/useTheme";
+import logoLight from "./../../../static/images/logoLight.png";
+import logoDark from "./../../../static/images/logoDark.jpg";
 
 type Props = {
     setBurgerStatus: (status: boolean) => void
 }
 
 export const ComputerNav: React.FC<Props> = ({ setBurgerStatus }) => {
-    const {useThemeClasses} = useTheme();
+    const { theme, useThemeClasses } = useTheme();
     return <Toolbar>
         <div className={c.computerMainContainer}>
             <Link to='/' className={c.logoContainer}>
-                <div className={useThemeClasses(c.logo, c.logoDark, c.logoLight)} />
+                {theme === 'light' ? <img alt='logo' src={logoLight} /> : <img alt='logo' src={logoDark} />}
             </Link>
             <Hidden mdDown>
                 <NavLinks mainContainerClassName={c.navContainer} />

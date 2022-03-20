@@ -46,18 +46,6 @@
                 transform: initial;
             }
         }
-        .mobileTriangleContainer {
-            width: 23px;
-            height: 27px;
-            .triangle {
-                @media screen and (max-width: 1400px) {
-                    width: 20px;
-                }
-                @media screen and (max-width: 899px) {
-                    grid-area: triangle;
-                }
-            }
-        }
         @media screen and (max-width: 1400px) {
             writing-mode: vertical-rl;
             flex-direction: row-reverse;
@@ -95,34 +83,12 @@
         padding: 20px 0;
     }
     .logoContainer {
-        .logo {
-            height: 65px;
-            background-repeat: no-repeat;
-            background-size: contain;
+        img {
+            width: 100%;
+            min-width: 130px;
             transition: opacity 0.3s;
             &:hover {
                 opacity: 0.7;
-            }
-            &.logoLight {
-                background-image: url(./../../../static/images/logoLight.png); 
-            }
-            &.logoDark {
-                background-image: url(./../../../static/images/logoDark.jpg);
-            }
-            @media screen and (max-width: 800px) {
-                height: 55px;
-            }
-            @media screen and (max-width: 700px) {
-                height: 50px;
-            }
-            @media screen and (max-width: 600px) {
-                height: 40px;
-            }
-            @media screen and (max-width: 500px) {
-                height: 35px;
-            }
-            @media screen and (max-width: 400px) {
-                height: 30px;
             }
         }
         @media screen and (max-width: 899px) {
@@ -137,11 +103,15 @@
             filter: invert(0);
         }
     }
-    .mobileTriangle {
-        width: auto;
-        height: auto;
-        position: absolute;
-        right: 0;
+    .mobileTriangleContainer {
+        width: 23px;
+        height: 27px;        
+        .mobileTriangle {
+            width: auto;
+            height: auto;
+            position: absolute;
+            right: 0;
+        }
     }
     .navContainer {
         @include adaptivValue('font-size', 16, 14, 0);

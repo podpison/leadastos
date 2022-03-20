@@ -23,7 +23,7 @@ export const ChoosenServicesModal: React.FC<Props> = ({isOpen, onClose}) => {
             <CloseIcon className={useThemeClasses(c.closeIcon, c.closeIconDark)} onClick={onClose} />
             {servicesYouPayFor.length !== 0 ? <div className={servicesYouPayForClasses}>
                 {servicesYouPayFor}
-            </div> : <p>You need to choose at least 1 service.</p>}
+            </div> : <p className={c.warningSign}>You need to choose at least 1 service.</p>}
             <Buttons areButtonsDisabled={areButtonsDisabled} closeModal={onClose} />
         </div>
     </Modal>

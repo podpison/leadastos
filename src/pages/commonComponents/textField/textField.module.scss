@@ -3,7 +3,7 @@
 .textField {
     .textFieldLabel, .textFieldInput {
         font-family: 'montserrat';
-        @include adaptivValue('font-size', 20, 15, 0);
+        @include adaptivValue('font-size', 20, 15, 2);
         &.textFieldLabelDark, &.textFieldInputDark {
             color: white;
         }

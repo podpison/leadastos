@@ -50,6 +50,9 @@
                 @media screen and (max-width: 899px) {
                     grid-area: button;
                 }
+                @media screen and (max-width: 425px) {
+                    width: 98%;
+                }
             }
             @media screen and (max-width: 899px) {
                 @for $i from 0 through 2 {
@@ -92,9 +95,20 @@
         }
         .contactInformation {
             margin-bottom: 50px;
+            &.contactInformationLight {
+                a {
+                    color: black;
+                }
+            }
+            &.contactInformationDark {
+                a {
+                    color: white;
+                }
+            }
             .contactContainer {
                 display: flex;
                 align-items: center;
+                width: fit-content;
                 &:not(:first-child) {
                     margin-top: 30px;
                 }
@@ -129,8 +143,10 @@
             @media screen and (min-width: 900px) and (max-height: 670px) {
                 gap: 10px;
             }
-            &.usefulLinksLight .linkContainer.darkTheme, &.usefulLinksDark .linkContainer.lightTheme {
-                border: none;
+            @media screen and (min-width: 900px) {
+                &.usefulLinksLight .linkContainer.darkTheme, &.usefulLinksDark .linkContainer.lightTheme {
+                    border: none;
+                }
             }
             .linkContainer {
                 width: 100%;
@@ -168,6 +184,7 @@
                 &.lightTheme {
                     background-color: white;
                     color: black;
+                    border: 2px solid black;
                     .arrow {
                         filter: invert(1);
                     }

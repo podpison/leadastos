@@ -39,36 +39,36 @@ export const ContactsSlide: React.FC = () => {
                     resetForm();
                 }}
             >
-                {({ values, errors, handleChange }) => {
-                    return <form className={c.formContainer}>
+                {({ values, errors, handleChange, handleSubmit}) => {
+                    return <form className={c.formContainer} onSubmit={handleSubmit}>
                         <TextField className={c.textfield0} value={values.fullName} errorMessage={errors.fullName} label='Full name' placeholder='Enter your full name' typeAndName="fullName" onChange={handleChange} />
                         <TextField className={c.textfield1} value={values.email} errorMessage={errors.email} label='Email' placeholder='Enter your email' typeAndName="email" onChange={handleChange} />
                         <TextField className={c.textfield2} value={values.howCanWeHelpYou} errorMessage={errors.howCanWeHelpYou} label='How can we help you' placeholder='Enter how we can help you' typeAndName="howCanWeHelpYou" onChange={handleChange} />
-                        <Button className={c.button} type='submit' disabled={!Object.keys(errors).length} variant='contained'>Send</Button>
+                        <Button className={c.button} type='submit' variant='contained'>Send</Button>
                     </form>
                 }}
             </Formik>
         </div>
         <div className={c.leftSide}>
-            <div className={c.contactInformation}>
-                <div className={c.contactContainer}>
+            <div className={useThemeClasses(c.contactInformation, c.contactInformationDark, c.contactInformationLight)}>
+                <a href='tel: +1 (647)-563-9114' className={c.contactContainer}>
                     <PhoneIcon />
                     <p>+1 (647)-563-9114</p>
-                </div>
-                <div className={c.contactContainer}>
+                </a>
+                <a href='mailto:lead@gmail.com?subject=Feel free to contact us!' className={c.contactContainer}>
                     <EmailIcon />
                     <p>lead@gmail.com</p>
-                </div>
-                <div className={c.contactContainer}>
+                </a>
+                <a href='https://maps.app.goo.gl/sB8R1rzpRw1Eke5H7' className={c.contactContainer}>
                     <LocationIcon />
                     <p>Margaretenstrabe 70/3, 1050 Vienna, Austria</p>
-                </div>
+                </a>
             </div>
             <div className={useThemeClasses(c.usefulLinks, c.usefulLinksDark, c.usefulLinksLight)}>
-                <Link name='become a client' contact='business@LEAD.com' theme={theme} />
+                <Link name='Become a client' theme={theme} />
                 <SocialNetworks className={c.socialNetworks} />
-                <Link name='become a partner' contact='business@LEAD.com' theme={theme === 'light' ? 'dark' : 'light'} />
-                <Link name='join lead team' contact='business@LEAD.com' theme={theme} />
+                <Link name='Become a partner' theme={theme === 'light' ? 'dark' : 'light'} />
+                <Link name='Join lead team' theme={theme} />
             </div>
         </div>
     </div>

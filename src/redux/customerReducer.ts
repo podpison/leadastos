@@ -60,4 +60,6 @@ export const customerActions = {
 export const subscribeCustomer = (customerData: CustomerDataType | ContactUsType) => async (dispatch: Dispatch) => {
     let response = await customerAPI.subscribeCustomer(customerData);
     dispatch(alertActions.setAlertInformation(response));
+    dispatch(customerActions.deleteAllServicesForPaying());
+    dispatch(customerActions.resetFields());
 }
