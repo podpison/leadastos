@@ -1,4 +1,4 @@
-@import "./../../App.module.scss";
+@import "./../../../App.module.scss";
 
 @mixin sign {
     @include adaptivValue('font-size', 50, 20, 2);
